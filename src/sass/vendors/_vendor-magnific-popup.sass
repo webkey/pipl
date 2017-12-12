@@ -1,0 +1,102 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* magnific popup
+.mfp-bg
+	background-color: #3e3e3d
+
+.mfp-container
+	max-width: $page-layout-width
+
+	+media('<desk-hd')
+		max-width: 100%
+/*
+ *
+ *====== Zoom effect ======
+.mfp-zoom-in
+	/* start state
+	.mfp-with-anim
+		opacity: 0
+		transition: all 0.2s ease-in-out
+		transform: scale(0.8)
+
+	&.mfp-bg
+		opacity: 0
+		transition: all 0.3s ease-out
+
+	/* animate in
+	&.mfp-ready
+		.mfp-with-anim
+			opacity: 1
+			transform: scale(1)
+
+		&.mfp-bg
+			opacity: 0.5
+
+	/* animate out
+	&.mfp-removing
+		.mfp-with-anim
+			transform: scale(0.8)
+			opacity: 0
+
+		&.mfp-bg
+			opacity: 0
+
+/*
+ *
+ *====== Fade effect ======
+.mfp-with-fade
+	// before-open state
+	.mfp-content,
+	&.mfp-bg
+		opacity: 0
+		transition: opacity .5s ease-out
+
+	// open state
+	&.mfp-ready
+		.mfp-content
+			opacity: 1
+		&.mfp-bg
+			opacity: 0.8
+
+	// closed state
+	&.mfp-removing
+		&.mfp-bg
+			opacity: 0
+
+/*
+ *
+ *====== Hinge effect ======
+@keyframes hinge
+
+	0%
+		transform: rotate(0)
+		transform-origin: top left
+		animation-timing-function: ease-in-out
+
+	20%, 60%
+		transform: rotate(80deg)
+		transform-origin: top left
+		animation-timing-function: ease-in-out
+
+	40%
+		transform: rotate(60deg)
+		transform-origin: top left
+		animation-timing-function: ease-in-out
+
+	80%
+		transform: rotate(60deg) translateY(0)
+		opacity: 1
+		transform-origin: top left
+		animation-timing-function: ease-in-out
+
+	100%
+		transform: translateY(700px)
+		opacity: 0
+
+.hinge
+	animation-duration: 1s
+	animation-name: hinge
+
+/* magnific popup end

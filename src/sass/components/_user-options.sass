@@ -3,9 +3,8 @@
 @import ../../libs/include-media/dist/include-media
 
 /* user options
-$uo-size: 50px
 $uo-space: 34px
-$uo-icon-size: 18px
+$uo-icon-size: 32px
 
 .user-options
 	position: relative
@@ -15,18 +14,20 @@ $uo-icon-size: 18px
 	+clear-spacing
 	line-height: 1
 
+	.header &
+		position: absolute
+		right: 0
+		top: 0
+
 .user-options__item
 	position: relative
 	+display-inline-block-middle
-	//+padding-horizontal(round($uo-space/2))
-	//padding: round($uo-space/2)
 	+font($font-size, 1)
 	letter-spacing: normal
 
 	& > a
 		position: relative
 		display: block
-		+size($uo-size)
 		color: $text-color
 		line-height: 1
 		// для svg
@@ -39,26 +40,8 @@ $uo-icon-size: 18px
 			+display-inline-block-middle
 			height: 100%
 
-		@if $animation-use
-			transition:
-				property: color
-				duration: $animation-speed
-
 		svg
-			//+display-inline-block-middle
 			+size($uo-icon-size)
-			position: absolute
-			left: 50%
-			top: 50%
-			margin: -#{round($uo-icon-size/2)} 0 0 -#{round($uo-icon-size/2)}
-
-			&.for-close
-				opacity: 0
-				visibility: hidden
-				z-index: auto
-
-			&.for-open
-				z-index: 1
 
 			& ~ span
 				padding-left: 10px
@@ -68,11 +51,9 @@ $uo-icon-size: 18px
 
 		path
 			fill: inherit
-
-			@if $animation-use
-				transition:
-					property: fill
-					duration: $animation-speed
+			transition:
+				property: fill
+				duration: $animation-speed
 
 		& > span
 			+display-inline-block-middle

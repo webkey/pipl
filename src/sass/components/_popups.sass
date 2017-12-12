@@ -1,0 +1,60 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* popups
+
+// default popup
+.default-popup
+	position: relative
+	max-width: $default-popup-width
+	padding: $default-popup-space
+	background-color: $bg-color-alt
+	+push-auto
+
+// popup title
+.default-popup__title
+	+font-alt-bold
+	+font(24px, round-float(32/24, 2))
+	margin-bottom: $bottom-space--md
+	padding-right: 20px
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+	&:last-child
+		margin-bottom: 0
+
+// popup button close
+.mfp-close
+	$mfp-close-btn-size: 40px
+	$mfp-close-icon-size: 12px
+
+	+size($mfp-close-btn-size)
+	opacity: 1
+
+	svg
+		position: absolute
+		left: 50%
+		top: 50%
+		+size($mfp-close-icon-size)
+		margin: -#{round($mfp-close-icon-size/2)} 0 0 -#{round($mfp-close-icon-size/2)}
+		z-index: -1
+		pointer-events: none
+
+	path
+		fill: inherit
+
+	.mfp-close-btn-in &
+		$space: round($popup-space - (($mfp-close-btn-size - $mfp-close-icon-size)/2))
+
+		fill: $text-color
+		color: $text-color
+		top: $space
+		right: $space
+
+		&:hover
+			fill: $link-color
+			color: $link-color
+
+/* popups end

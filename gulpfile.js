@@ -78,6 +78,8 @@ gulp.task('mergeCssLibs', function () { // Таск для мержа css биб
 		'src/css/temp/*.css' // see gulpfile-special.js
 		, 'src/libs/select2/dist/css/select2.min.css' // стили для кастомного селекта
 		, 'src/libs/fullpage.js/dist/jquery.fullpage.min.css' // стили для плагина постраничной прокрутки
+		, 'src/libs/magnific-popup/dist/magnific-popup.css' // Magnific Popup - v1.1.0 - 2016-02-20 http://dimsemenov.com/plugins/magnific-popup/
+		, 'src/libs/swiper/dist/css/swiper.min.css' // стили для swiper slider
 		// , 'src/lib/plugin/file.css'
 	]) // Выбираем файлы для конкатенации
 		.pipe(concatCss("src/css/libs.css", {
@@ -104,9 +106,12 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 		, 'src/libs/select2/dist/js/i18n/ru.js' // локализация для кастомного селекта
 		// , 'src/js/temp/filer.min.js' // инпут файл
 		, 'src/libs/slick-carousel/slick/slick.min.js' // slick slider
+		, 'src/libs/swiper/dist/js/swiper.min.js' // swiper slider
 		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers
 		// , 'src/libs/fullpage.js/vendors/scrolloverflow.min.js' // расширение для плагина постраничной прокрутки, позволяющее добавлять скролл внутри страницы
 		, 'src/libs/fullpage.js/dist/jquery.fullpage.min.js' // скрипт для постраничной прокрутки
+		, 'src/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Magnific Popup - v1.1.0 - 2016-02-20 http://dimsemenov.com/plugins/magnific-popup/
+
 	])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js
 		.pipe(gulp.dest('src/js'))

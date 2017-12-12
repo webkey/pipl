@@ -101,10 +101,85 @@
 						</div>
 					</div>
 				</section>
-				<section class="main-section main-section-js main-section--categories" data-anchor="sectionPromo">
+				<section class="main-section main-section-js main-section--info" data-anchor="sectionPromo">
 					<div class="main-section__container">
-						<div class="main-section__align max-wrap layout">
-							Section 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis fugiat minima molestiae, qui quidem recusandae! Ad blanditiis dicta, eligendi eos esse facilis iusto nam quis quisquam, ratione reiciendis repellendus veritatis!
+						<div class="main-section__align">
+							<div class="main-slider swiper-container main-slider-js">
+								<div class="parallax-bg" data-swiper-parallax="-23%">
+									<div style="background-image:url(img/bg-img.jpg)"></div>
+								</div>
+								<div class="swiper-wrapper">
+									<div class="main-slider__item swiper-slide">
+										<div class="max-wrap layout">
+											<div class="main-slider__img" data-swiper-parallax="-400">
+												<img src="img/__temp-img-content-carousel-01.jpg" alt="Не используйте причудливые шрифты" />
+											</div>
+											<div class="main-slider__content">
+												<strong class="main-slider__title" data-swiper-parallax="-300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis est laboriosam possimus rerum sequi voluptate?</strong>
+												<div class="main-slider__footer" data-swiper-parallax="-200">
+													<a href="#" class="more-link"><span>Подробнее</span></a>
+												</div>
+												<div class="" data-swiper-parallax="-100">
+													<a href="#log-popup" class="btn-art btn-popup-js"><span>Open popup</span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="main-slider__item swiper-slide">
+										<div class="max-wrap layout">
+											<div class="main-slider__img" data-swiper-parallax="-400">
+												<img src="img/__temp-img-content-carousel-02.jpg" alt="Не используйте причудливые шрифты" />
+											</div>
+											<div class="main-slider__content">
+												<strong class="main-slider__title" data-swiper-parallax="-300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, cumque ducimus fuga obcaecati ratione repellat ut. Aperiam distinctio esse excepturi in, nobis, nulla obcaecati quae quos repellat, suscipit tenetur voluptatem.</strong>
+												<div class="main-slider__footer" data-swiper-parallax="-200">
+													<a href="#" class="more-link"><span>Подробнее</span></a>
+												</div>
+												<div class="" data-swiper-parallax="-100">
+													<a href="#log-popup" class="btn-art btn-popup-js"><span>Open popup</span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="main-slider__item swiper-slide">
+										<div class="max-wrap layout">
+											<div class="main-slider__img" data-swiper-parallax="-400">
+												<img src="img/__temp-img-content-carousel-03.jpg" alt="Не используйте причудливые шрифты" />
+											</div>
+											<div class="main-slider__content">
+												<strong class="main-slider__title" data-swiper-parallax="-300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, natus!</strong>
+												<div class="main-slider__footer" data-swiper-parallax="-200">
+													<a href="#" class="more-link"><span>Подробнее</span></a>
+												</div>
+												<div class="" data-swiper-parallax="-100">
+													<a href="#log-popup" class="btn-art btn-popup-js"><span>Open popup</span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="main-slider__item swiper-slide">
+										<div class="max-wrap layout">
+											<div class="main-slider__img" data-swiper-parallax="-400">
+												<img src="img/__temp-img-content-lg.jpg" alt="Не используйте причудливые шрифты" />
+											</div>
+											<div class="main-slider__content">
+												<strong class="main-slider__title" data-swiper-parallax="-300">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem deleniti dolore eaque eos et eveniet explicabo incidunt iure laborum minima mollitia nostrum quam quas, suscipit ut vel vero! Odit.</strong>
+												<div class="main-slider__footer" data-swiper-parallax="-200">
+													<a href="#" class="more-link"><span>Подробнее</span></a>
+												</div>
+												<div class="" data-swiper-parallax="-100">
+													<a href="#log-popup" class="btn-art btn-popup-js"><span>Open popup</span></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- pagination -->
+								<div class="main-slider-pagination swiper-pagination"></div>
+								<!-- navigation buttons -->
+								<div class="main-slider-prev swiper-button-prev">Предыдущий</div>
+								<div class="main-slider-next swiper-button-next">Слудующий</div>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -140,6 +215,27 @@
 			</div>
 		</div>
 	</footer>
+	<!--log popup-->
+	<div id="log-popup" class="default-popup mfp-with-anim mfp-hide">
+		<div class="default-popup__content">
+			<strong class="footer-common__title">Адрес</strong>
+			<div class="msg-form">
+				<form action="#" method="post">
+					<!--<label for="">E-mail:</label>-->
+					<input type="email" placeholder="E-mail">
+					<div class="error-note">Поле обязательное для заполнения</div>
+					<div class="success-note">Подтверждено</div>
+					<!--<label for="">Пароль:</label>-->
+					<input type="password" placeholder="Пароль">
+					<div class="error-note">Поле обязательное для заполнения</div>
+					<div class="success-note">Подтверждено</div>
+					<div class="form-buttons">
+						<button class="btn-default btn-submit">Войти</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
 	<!--footer end-->
 	<script src="js/jquery.min.js"></script>
 	<script src="js/libs.min.js"></script>

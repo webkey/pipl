@@ -38,10 +38,22 @@
 				</div>
 			</div>
 		</section>
-		<section class="main-section main-section-js main-section--categories" data-anchor="sectionPromo">
+		<section class="main-section main-section-js main-section--info" data-anchor="sectionPromo">
 			<div class="main-section__container">
-				<div class="main-section__align max-wrap layout">
-					Section 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis fugiat minima molestiae, qui quidem recusandae! Ad blanditiis dicta, eligendi eos esse facilis iusto nam quis quisquam, ratione reiciendis repellendus veritatis!
+				<div class="main-section__align">
+					<div class="main-slider swiper-container main-slider-js">
+						<div class="parallax-bg" data-swiper-parallax="-23%">
+							<div style="background-image:url(img/bg-img.jpg)"></div>
+						</div>
+						<div class="swiper-wrapper">
+							@@loop("_tpl_main-slider--items.html", "includes/json/main-slider--items.json")
+						</div>
+						<!-- pagination -->
+						<div class="main-slider-pagination swiper-pagination"></div>
+						<!-- navigation buttons -->
+						<div class="main-slider-prev swiper-button-prev">Предыдущий</div>
+						<div class="main-slider-next swiper-button-next">Слудующий</div>
+					</div>
 				</div>
 			</div>
 		</section>

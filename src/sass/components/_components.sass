@@ -32,12 +32,143 @@
 		text-transform: uppercase
 		color: white
 
+
 /*scroll sections end
-
-/* main section
-
-/* main section end
 
 /* fullpage navigation
 // #fp-nav
 /* fullpage navigation end
+
+/* main slider
+.main-slider
+	//width: 600px
+	height: 100%
+	width: 100%
+	background-color: transparent
+
+.parallax-bg
+	position: absolute
+	left: 0
+	top: 0
+	+size(130%, 100%)
+
+	& > div
+		position: absolute
+		left: 0
+		top: 0
+		+size(100%)
+		background-size: cover
+		background-position: center
+		opacity: 0
+		transform: scale(1.1)
+		transform: scale(1.1) translateZ(0)
+		will-change: opacity, transform
+		transition:
+			duration: 0.2s
+			property: opacity, transform
+
+		.fp-completely.active &
+			opacity: 1
+			transform: scale(1)
+			transform: scale(1) translateZ(0)
+			transition:
+				duration: 1s
+
+.main-slider-prev, .main-slider-next, .main-slider-pagination, .main-slider__content
+	user-select: none
+
+.main-slider-pagination
+	position: absolute
+	top: 0
+	left: 0
+	bottom: auto
+	width: auto
+	min-width: 35px
+	padding-right: 20px
+	+font(20px, 1)
+
+	&::after
+		+pseudo()
+		left: 100%
+		top: 50%
+		+size(100px, 0)
+		border-top: 1px solid $border-color
+		margin-top: -1px
+
+		+media('<desk-sm')
+			width: 50px
+
+.main-slider__item
+	position: relative
+	text-align: center
+
+	&::after
+		content: ""
+		display: inline-block
+		vertical-align: middle
+		height: 100%
+
+.main-slider__img
+	+size(200px)
+	background-color: $bg-color-alt
+	z-index: -2
+
+	img
+		display: block
+		+size(100%)
+		max-width: none
+		+object-fit(cover)
+
+.main-slider__content
+	+display-inline-block-top
+	width: 1200px
+	max-width: calc(100% - 10px)
+	text-align: left
+
+.main-slider__title
+	$line-height: 1
+	$font-size: 24px
+	$font-size--hd: 22px
+	$font-size--lg: 20px
+	$font-size--sm: 18px
+	// ===============
+	display: block
+	overflow: hidden
+	margin-bottom: $bottom-space--lg
+	+font-alt-bold
+	+font($font-size, $line-height)
+	width: 700px
+	max-width: 100%
+	max-height: round($font-size*$line-height*5) // maximum 5 line
+	cursor: default
+
+	//+media('<desk-lg')
+		font-size: $font-size--lg
+		max-height: round($font-size--lg*$line-height*5) // maximum 5 line
+
+	+media('<desk-sm')
+		width: 600px
+		font-size: $font-size--sm
+		max-height: round($font-size--sm*$line-height*5) // maximum 5 line
+
+	&:last-child
+		margin-bottom: 0
+
+.main-slider__footer
+	.more-link
+		+display-inline-block-top
+		text-decoration: none
+		color: inherit
+
+		span
+			+display-inline-block-top
+			line-height: 1.5
+			border-bottom: 2px solid $border-color
+
+		&:hover
+			color: $base-color
+
+			span
+				border-color: $base-color
+
+/* main slider end
