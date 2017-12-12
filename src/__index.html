@@ -1,0 +1,56 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Главная",
+	"pageClass": "home-page"
+})
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "START" })
+
+<!--HEADER-->
+@@include('_tpl_layout_header.html', {
+	"currentItem": "Главная"
+})
+<!--HEADER end-->
+
+<!--MAIN-->
+<div class="main">
+	<div class="main-sections main-sections-js">
+		<section class="main-section main-section-js main-section--main" data-anchor="sectionMain">
+			<div class="main-section__container">
+				<div class="main-section__align max-wrap layout">
+					<h1 class="main-section__title">Как создать вирусное <br> видео</h1>
+					<div class="class">
+						<a href="#?" class="btn-light btn-with-icon">
+							@@include("includes/svg/play.svg")
+							<span>Ролик о роликах</span>
+						</a>
+					</div>
+					<div class="class">
+						<a href="#?" class="btn-art">
+							<span>Оставить<br> заявку</span>
+						</a>
+					</div>
+					<div class="class">
+						<a href="#?" class="move-next-section-js">
+							@@include("includes/svg/scroll.svg")
+							<span class="hide-text">Скрольте страницу вниз</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="main-section main-section-js main-section--categories" data-anchor="sectionPromo">
+			<div class="main-section__container">
+				<div class="main-section__align max-wrap layout">
+					Section 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis fugiat minima molestiae, qui quidem recusandae! Ad blanditiis dicta, eligendi eos esse facilis iusto nam quis quisquam, ratione reiciendis repellendus veritatis!
+				</div>
+			</div>
+		</section>
+	</div>
+</div>
+<!--MAIN end-->
+
+@@include('_tpl_PAGE_WRAP.html', { "pageWrap": "END" })
+
+@@include('_tpl_layout_foot.html', {
+	"hasFooter": "false"
+})

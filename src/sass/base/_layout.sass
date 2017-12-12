@@ -1,0 +1,93 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+body
+	height: 100%
+	min-width: 320px
+	position: relative
+
+.wrapper
+	margin: 0 auto
+	min-height: 100vh
+	overflow: hidden
+	position: relative
+
+.main
+	position: relative
+	z-index: 4
+
+	//padding: 0 #{$layout-spaces}
+
+/* header (layout)
+.header
+	position: fixed
+	top: 0
+	z-index: 1020
+	height: $header-height
+	width: 100%
+	//@if $page-layout-width
+	//	max-width: #{$page-layout-width}
+	//@else
+	//	max-width: 100%
+
+/* header (layout) end
+
+/* footer (layout)
+.footer
+	position: relative
+	clear: both
+	z-index: 5
+
+/* footer (layout) end
+
+/* page layout
+.max-wrap
+	max-width: $page-layout-width + $page-layout-space-horizontal*2
+
+.layout
+	+padding-horizontal($page-layout-space-horizontal)
+	+push-auto
+
+	+media('<tab-lg')
+		.main &
+			+padding-horizontal(0)
+
+/* page layout end
+
+// максимальная ширина текстовых элементов на внутренней (текстовой) странице
+.max-wrap-text
+	max-width: #{$text-layout-width + $text-layout-space*2}
+
+	+media('<tab-lg')
+		max-width: #{$text-layout-width + $text-layout-space--md*2}
+
+	+media('<tab-sm')
+		max-width: #{$text-layout-width + $text-layout-space--sm*2}
+
+// выравнивание текстовых элементов на внутренней (текстовой) странице
+// и их максимальная ширина
+.layout-text
+	max-width: #{$text-layout-width + $text-layout-space*2}
+	+padding-horizontal($text-layout-space)
+	+push-auto
+
+	+media('<tab-lg')
+		max-width: #{$text-layout-width + $text-layout-space--md*2}
+		+padding-horizontal($text-layout-space--md)
+
+	+media('<tab-sm')
+		max-width: #{$text-layout-width + $text-layout-space--sm*2}
+		+padding-horizontal($text-layout-space--sm)
+
+/* scroll section (layout)
+.main-section
+	padding-top: $header-height
+
+	+media('<desk-lg')
+		padding-top: $header-height--lg
+
+	+media('<desk-sm')
+		padding-top: 0
+
+/* scroll section (layout) end

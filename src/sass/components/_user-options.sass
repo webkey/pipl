@@ -1,0 +1,127 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* user options
+$uo-size: 50px
+$uo-space: 34px
+$uo-icon-size: 18px
+
+.user-options
+	position: relative
+	list-style: none
+	padding: 0
+	margin: 0 -#{round($uo-space/2)}
+	+clear-spacing
+	line-height: 1
+
+.user-options__item
+	position: relative
+	+display-inline-block-middle
+	//+padding-horizontal(round($uo-space/2))
+	//padding: round($uo-space/2)
+	+font($font-size, 1)
+	letter-spacing: normal
+
+	& > a
+		position: relative
+		display: block
+		+size($uo-size)
+		color: $text-color
+		line-height: 1
+		// для svg
+		fill: $text-color
+		text-decoration: none
+		text-align: center
+
+		&::before
+			content: ""
+			+display-inline-block-middle
+			height: 100%
+
+		@if $animation-use
+			transition:
+				property: color
+				duration: $animation-speed
+
+		svg
+			//+display-inline-block-middle
+			+size($uo-icon-size)
+			position: absolute
+			left: 50%
+			top: 50%
+			margin: -#{round($uo-icon-size/2)} 0 0 -#{round($uo-icon-size/2)}
+
+			&.for-close
+				opacity: 0
+				visibility: hidden
+				z-index: auto
+
+			&.for-open
+				z-index: 1
+
+			& ~ span
+				padding-left: 10px
+
+			& ~ span.hide-text
+				padding-left: 0
+
+		path
+			fill: inherit
+
+			@if $animation-use
+				transition:
+					property: fill
+					duration: $animation-speed
+
+		& > span
+			+display-inline-block-middle
+
+		// hover
+		&:hover
+			color: $link-color
+			fill: $link-color
+
+		&.active
+			.for-close
+				opacity: 1
+				visibility: visible
+				z-index: 1
+
+			.for-open
+				opacity: 0
+				visibility: hidden
+				z-index: auto
+
+// search link
+.search-link
+	.for-close
+		+size(12px)
+		margin: -6px 0 0 -6px
+
+// basket link
+.user-options-counter
+	$size: 18px
+	$border: 2px
+	position: absolute
+	left: 0
+	top: 50%
+	margin: -18px 0 0 24px
+	padding: 0 3px
+	height: $size+$border*2
+	min-width: $size+$border*2
+	border-radius: round(($size+$border*2)/2)
+	background-color: $base-color
+	border: $border solid $bg-color-base
+	+font(11px, $size)
+	color: $bg-color-base
+	text-align: center
+
+// lang link
+.lang-link
+	display: none
+
+	+media('<desk-sm')
+		display: inline-block
+
+/* user options
