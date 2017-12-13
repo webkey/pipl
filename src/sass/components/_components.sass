@@ -3,11 +3,66 @@
 @import ../../libs/include-media/dist/include-media
 
 /*scroll sections
-.main-section-js
+
+// fading
+.fp-section
+	width: 100% !important
+	position: absolute
+	left: 0
+	top: 0
+	visibility: hidden
+	opacity: 0
+
+	&.active
+		visibility: visible
+		opacity: 1
+
+.fp-slidesContainer
+	width: 100% !important
+	transform: none!important
+
+.fp-slide
+	width: 100% !important
+	position: absolute
+	left: 0
+	top: 0
+	visibility: hidden
+	opacity: 0
+
+	&.active
+		visibility: visible
+		opacity: 1
+
+.fp-slide, .fp-section
+	transition: all 0.7s ease
+
+// fading
+
+//.main-section-js
 	position: relative
 
 .main-section__container
 	height: 100%
+
+.main-section__bg
+	position: absolute
+	left: 0
+	top: 0
+	+size(100%)
+	z-index: -1
+
+	& > div
+		position: absolute
+		left: 0
+		top: 0
+		+size(100%)
+		text-indent: -9999px
+		overflow: hidden
+		font-size: 0
+		line-height: 0
+		background-position: center
+		background-repeat: no-repeat
+		background-size: cover
 
 .main-section__align
 	height: 100%
@@ -32,6 +87,39 @@
 		text-transform: uppercase
 		color: white
 
+.row-video
+	margin-bottom: 140px
+	margin-bottom: 12vh
+
+	&:last-child
+		margin-bottom: 0
+
+.row-callback
+	margin-bottom: 100px
+	margin-bottom: 8vh
+
+	&:last-child
+		margin-bottom: 0
+
+.row-scroll
+	color: white
+	fill: white
+	margin-bottom: 20px
+	margin-bottom: 4vh
+
+	&:last-child
+		margin-bottom: 0
+
+	a
+		color: inherit
+		fill: inherit
+
+	svg
+		+display-inline-block-top
+		+size(50px)
+
+	path
+		fill: inherit
 
 /*scroll sections end
 
@@ -50,125 +138,266 @@
 	position: absolute
 	left: 0
 	top: 0
-	+size(130%, 100%)
+	+size(150%, 100%)
 
 	& > div
+		text-indent: -9999px
+		overflow: hidden
 		position: absolute
 		left: 0
 		top: 0
 		+size(100%)
-		background-size: cover
+		background-size: 100% 100%
 		background-position: center
-		opacity: 0
-		transform: scale(1.1)
-		transform: scale(1.1) translateZ(0)
+		//opacity: 0
+		//transform: scale(1.2)
+		//transform: scale(1.2) translateZ(0)
 		will-change: opacity, transform
 		transition:
-			duration: 0.2s
+			duration: 0.5s
 			property: opacity, transform
 
-		.fp-completely.active &
-			opacity: 1
-			transform: scale(1)
-			transform: scale(1) translateZ(0)
+		.active &
+			//opacity: 1
+			//transform: scale(1)
+			//transform: scale(1) translateZ(0)
 			transition:
 				duration: 1s
 
 .main-slider-prev, .main-slider-next, .main-slider-pagination, .main-slider__content
 	user-select: none
 
-.main-slider-pagination
-	position: absolute
-	top: 0
-	left: 0
-	bottom: auto
-	width: auto
-	min-width: 35px
-	padding-right: 20px
-	+font(20px, 1)
-
-	&::after
-		+pseudo()
-		left: 100%
-		top: 50%
-		+size(100px, 0)
-		border-top: 1px solid $border-color
-		margin-top: -1px
-
-		+media('<desk-sm')
-			width: 50px
-
 .main-slider__item
 	position: relative
 	text-align: center
-
-	&::after
-		content: ""
-		display: inline-block
-		vertical-align: middle
-		height: 100%
+	overflow: hidden
 
 .main-slider__img
-	+size(200px)
-	background-color: $bg-color-alt
+	overflow: hidden
 	z-index: -2
 
 	img
 		display: block
-		+size(100%)
-		max-width: none
-		+object-fit(cover)
+		margin: 0 auto
+		//+size(100%)
+		width: auto
+		//max-width: none
+		//+object-fit(cover)
 
 .main-slider__content
-	+display-inline-block-top
-	width: 1200px
+	float: left
+	width: 572px
 	max-width: calc(100% - 10px)
 	text-align: left
+	margin-right: $layout-spaces
+	color: white
+
+	a
+		color: white
+
+.main-slider__img, .main-slider__content
+	will-change: transform, opacity
+	opacity: 0
+	transition:
+		property: transform, opacity
+		duration: 1.5s
+
+	.fp-section.active &
+		opacity: 1
 
 .main-slider__title
-	$line-height: 1
+	display: block
+	+font-title
+	+font(72px, 1)
+	color: white
+	text-transform: uppercase
+	cursor: default
+	width: 700px
+	max-width: 100%
+	margin-bottom: 40px
+
+	&:last-child
+		margin-bottom: 0
+
+.main-slider__text
+	$line-height: round-float(28/24, 2)
 	$font-size: 24px
 	$font-size--hd: 22px
-	$font-size--lg: 20px
-	$font-size--sm: 18px
 	// ===============
 	display: block
 	overflow: hidden
-	margin-bottom: $bottom-space--lg
-	+font-alt-bold
+	margin-bottom: 30px
+	max-width: 372px
+	+font-alt
 	+font($font-size, $line-height)
-	width: 700px
-	max-width: 100%
-	max-height: round($font-size*$line-height*5) // maximum 5 line
+	max-height: round($font-size*$line-height*13) // maximum 13 line
 	cursor: default
-
-	//+media('<desk-lg')
-		font-size: $font-size--lg
-		max-height: round($font-size--lg*$line-height*5) // maximum 5 line
-
-	+media('<desk-sm')
-		width: 600px
-		font-size: $font-size--sm
-		max-height: round($font-size--sm*$line-height*5) // maximum 5 line
 
 	&:last-child
 		margin-bottom: 0
 
 .main-slider__footer
-	.more-link
-		+display-inline-block-top
-		text-decoration: none
-		color: inherit
+	position: absolute
+	left: 0
+	width: 100%
+	bottom: 80px
+	bottom: 10vh
+	text-align: center
+	z-index: 10
 
-		span
-			+display-inline-block-top
-			line-height: 1.5
-			border-bottom: 2px solid $border-color
+.main-slider-pagination
+	position: absolute
+	top: auto
+	left: 50%
+	bottom: 85px
+	bottom: 10vh
+	width: $page-layout-width
+	max-width: 100%
+	transform: translate(-50%, 0)
+	min-width: 35px
+	padding-right: 20px
+	+font(16px, round-float(24/16, 2))
+	text-align: left
+	text-transform: uppercase
+	letter-spacing: 0.1em
+	color: white
 
-		&:hover
-			color: $base-color
+.main-slider-prev
+	left: 80px
 
-			span
-				border-color: $base-color
+.main-slider-next
+	right: 80px
 
 /* main slider end
+
+/* share
+$social-share-space: 28px !default
+$social-share-size: 40px !default
+
+.social-share
+	position: relative
+	min-width: $social-share-size
+	height: $social-share-size
+
+.social-share__opener
+	position: relative
+	color: white
+	fill: white
+	text-decoration: none
+	cursor: pointer
+	overflow: hidden
+	text-align: center
+	user-select: none
+
+	&::before, &::after
+		$this-icon-lines-width: 16px
+		$this-icon-lines-height: 4px
+		$this-icon-lines-color: white
+		// ==============
+		+pseudo()
+		left: 50%
+		top: 50%
+		margin: -1px 0 0 -8px
+		border: none
+		+size($this-icon-lines-width, $this-icon-lines-height)
+		background-color: $this-icon-lines-color
+		display: none
+
+	&::before
+		transform: rotate(-45deg)
+
+	&::after
+		transform: rotate(45deg)
+
+	&:hover
+		border-color: $link-color
+		fill: $link-color
+
+.social-share__list
+	display: block
+	position: absolute
+	top: 100%
+	left: 0
+	width: 100%
+	opacity: 0
+	visibility: hidden
+	transition:
+		property: opacity, visibility
+		duration: $animation-speed
+
+.social-share__item
+	display: block
+	margin: #{round($social-share-space/2)} 0
+	+font(14px, round-float(18/14, 2))
+	text-align: center
+	opacity: 0
+	transition:
+		property: transform, opacity
+		duration: $animation-speed + 0.2s
+
+	+space($space: 10px)
+
+	a
+		display: block
+		position: relative
+		color: white
+		fill: white
+		transition:
+			property: color
+			duration: $animation-speed
+
+// icons
+.social-share__opener, .social-share__item
+	span
+		+hide-text
+
+	svg
+		+display-inline-block-top
+		+size($social-share-size)
+
+	path
+		fill: inherit
+		transition:
+			property: fill
+			duration: $animation-speed
+
+// hover
+.social-share__item
+	a:hover
+		&.fb
+			border-color: $facebook-color
+			fill: $facebook-color
+
+		&.vk
+			border-color: $vkontakte-color
+			fill: $vkontakte-color
+
+		&.twitter
+			border-color: $twitter-color
+			fill: $twitter-color
+
+		&.ok
+			border-color: $odnoklassniki-color
+			fill: $odnoklassniki-color
+
+		&.youtube
+			border-color: $youtube-color
+			fill: $youtube-color
+
+		&.instagram
+			border-color: $instagram-color-end
+			fill: $instagram-color-end
+
+.is-open
+	.social-share__list
+		opacity: 1
+		visibility: visible
+
+		.social-share__item
+			opacity: 1
+			transform: translate(0, 0)
+
+			+delay($delay: 0.2s)
+
+/* share end
+

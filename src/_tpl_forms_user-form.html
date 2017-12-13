@@ -2,36 +2,51 @@
 	<div class="layout-text">
 		<div class="form-title">@@title</div>
 		<form action="#" method="post">
-			<div class="input-wrap">
-				<div class="label-holder">
-					<label for="user-form-example__name-field">Имя<span class="form-mark">*</span></label>
+
+			<div class="form-row">
+				<div class="input-wrap light-form field-effects-js">
+					<div class="label-holder"><label for="uf-light-field-01">Ваше имя<span class="form-mark">*</span></label></div>
+					<input type="text" id="uf-light-field-01"/>
+					@@include('_tpl_forms_form-validation.html')
 				</div>
-				<div class="input-holder">
-					<input type="text" id="user-form-example__name-field">
-					<span class="error-note">Поле обязательное для заполнения</span>
-					<span class="success-note">&nbsp;</span>
-				</div>
-			</div>
-			<div class="input-wrap">
-				<div class="label-holder">
-					<label for="user-form-example__email-field">E-mail<span class="form-mark">*</span></label>
-				</div>
-				<div class="input-holder">
-					<input type="email" id="user-form-example__email-field">
-					<span class="error-note">Поле обязательное для заполнения</span>
-					<span class="success-note">&nbsp;</span>
+				<div class="input-wrap light-form field-effects-js">
+					<div class="label-holder"><label for="uf-light-field-03">Телефон<span class="form-mark">*</span></label></div>
+					<input type="text" id="uf-light-field-03"/>
+					@@include('_tpl_forms_form-validation.html')
 				</div>
 			</div>
-			<div class="input-wrap">
-				<div class="label-holder">
-					<label for="user-form-example__message-field">Сообщение<span class="form-mark">*</span></label>
+
+			<div class="form-row">
+				<div class="input-wrap light-form field-effects-js">
+					<div class="label-holder"><label for="uf-light-field-04">E-mail<span class="form-mark">*</span></label></div>
+					<input type="email" id="uf-light-field-04" />
+					@@include('_tpl_forms_form-validation.html')
 				</div>
-				<div class="input-holder">
-					<textarea id="user-form-example__message-field"></textarea>
-					<span class="error-note">Поле обязательное для заполнения</span>
-					<span class="success-note">&nbsp;</span>
+				<div class="input-wrap light-form field-effects-js">
+					<div class="label-holder">
+						<label for="light-select-example">Бюджет:</label>
+					</div>
+					<div class="select">
+						<select id="light-select-example">
+							<option value=""></option> <!--Важно! У первого опшина value должен быть равен ""-->
+							<option value="1">100</option>
+							<option value="2">200</option>
+							<option value="3">500</option>
+							<option value="4">1 000</option>
+							<option value="5">5 000</option>
+							<option value="6">10 000</option>
+						</select>
+						@@include('_tpl_forms_form-validation.html')
+					</div>
 				</div>
 			</div>
+
+			<div class="input-wrap field-effects-js">
+				<div class="label-holder"><label for="uf-light-field-05">Сообщение<span class="form-mark">*</span></label></div>
+				<textarea id="uf-light-field-05"></textarea>
+				@@include('_tpl_forms_form-validation.html')
+			</div>
+
 			<div class="input-wrap">
 				<div class="label-holder">
 					<span class="label">Прикрепить файл</span>
@@ -40,12 +55,14 @@
 					<input class="upload-file" name="files[]" type="file" multiple="multiple" data-jfiler-limit="2">
 				</div>
 			</div>
+
 			<div class="input-wrap">
 				<div class="label-holder">
 					<label for="user-form-example__captcha-field">Защита от спама:<span class="form-mark">*</span></label>
 				</div>
 				<div class="input-holder">
 					<div class="captcha">
+						<div class="captcha-refresh"><a href="#"><span>Другое изображение</span></a></div>
 						<img src="img/captcha.jpg" alt="captcha" />
 						<input type="text" id="user-form-example__captcha-field">
 						<span class="error-note">Введите текст на картинке для защиты от спама</span>
@@ -53,9 +70,12 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="form-footer">
 				<div class="form-buttons">
-					<button class="btn-default btn-submit" data-label="Отправить">Отправить</button>
+					<button class="btn-default btn-submit">
+						<span>ОТПРАВИТЬ</span>
+					</button>
 				</div>
 				<div class="form-note">
 					<div class="form-note__item"><span class="form-mark">*</span> Поля обязательны для заполнения</div>

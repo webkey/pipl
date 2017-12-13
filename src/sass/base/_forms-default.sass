@@ -16,7 +16,7 @@
 	position: relative // Важно! Для позицирования отметки подтверждения полей формы
 	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
 
-.label-holder, label
+.label-holder, label, .label
 	+font-normal
 	+font($font-size, $line-height)
 	color: $text-color-light
@@ -25,6 +25,8 @@
 label, .label
 	+display-inline-block-top
 	user-select: none
+	text-transform: uppercase
+	letter-spacing: 0.1em
 
 .label-holder
 	label, .label
@@ -144,6 +146,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 	float: left
 	position: relative
 	+size(100%, 22px)
+	+font-normal
 	+font(12px, 22px)
 	letter-spacing: normal // Важно!
 	+truncate(none)
@@ -590,7 +593,7 @@ input[type="radio"]
 
 .select,
 .select2-container--default .select2-selection--single .select2-selection__arrow b
-	&::before, &::after
+	//&::before, &::after
 		content: ''
 		position: absolute
 		right: 22px
@@ -600,12 +603,24 @@ input[type="radio"]
 		margin-top: -1px
 		z-index: 1
 
-	&::before
+	//&::before
 		transform: rotate(45deg)
 
-	&::after
+	//&::after
 		transform: rotate(-45deg)
 		right: 17px
+
+	&::before
+		position: absolute
+		right: 22px
+		top: 50%
+		content: ''
+		background: url(../../img/select-arrow.svg) no-repeat
+		+size(8px)
+		margin: -4px 0 0
+		transform: rotate(0.25turn)
+		background-size: contain
+		z-index: 1
 
 .select2-container--default
 	.select2-selection--single

@@ -10,8 +10,9 @@ html
 		+scroll-blocked()
 
 body
-	+font-normal
+	+font-light
 	+font($font-size, $line-height)
+	letter-spacing: $letter-spacing
 	color: $text-color
 	background: $bg-color url(../../img/bg-img.jpg) no-repeat center fixed
 	background-size: cover
@@ -20,6 +21,10 @@ body
 	*::selection
 		background-color: $base-color
 		color: white
+
+	&.home-page
+		height: 100%
+		overflow: hidden
 
 h1, h2, h3, h4, h5, h6
 	padding: 0

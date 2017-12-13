@@ -1,21 +1,25 @@
 <header class="header">
 	<div class="max-wrap layout">
 		<div class="header__holder">
-			<div class="slogan">создание вирусных роликов</div>
+			<div class="slogan"><span>Создание вирусных роликов</span></div>
 			<!--logo-->
-			<strong class="logo"><a href="index.html">Project Name</a><img style="display: none;" src="img/logo.png" alt="Project Name"></strong>
+			<strong class="logo"><a href="index.html">создание вирусных роликов</a><img style="display: none;" src="img/logo.png" alt="создание вирусных роликов"></strong>
 			<!--logo end-->
 			<ul class="user-options">
-				<li class="user-options__item message-link">
+				<li class="user-options__item user-options__item--phone">
 					<a href="tel:8 (029) 566-73-12" title="8 (029) 566-73-12">
 						<span>8 (029) 566-73-12</span>
 					</a>
 				</li>
-				<li class="user-options__item message-link">
-					<a href="#?" title="">
-						@@include("includes/svg/tpl.svg")
-						<span class="hide-text">Сообщения</span>
-					</a>
+				<li class="user-options__item user-options__item--share">
+					<div class="social-share social-share__container-js">
+						<a href="#" class="social-share__opener social-share__opener-js">
+							@@include("includes/svg/share.svg")
+						</a>
+						<div class="social-share__list social-share__drop-js">
+							@@loop('_tpl_social-share-items.html', 'includes/json/social-share.json')
+						</div>
+					</div>
 				</li>
 			</ul>
 		</div>

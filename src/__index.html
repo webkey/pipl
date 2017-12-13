@@ -16,21 +16,20 @@
 	<div class="main-sections main-sections-js">
 		<section class="main-section main-section-js main-section--main" data-anchor="sectionMain">
 			<div class="main-section__container">
+				<div class="main-section__bg"><div style="background-image:url(img/bg-img.jpg)">&nbsp;</div></div>
 				<div class="main-section__align max-wrap layout">
 					<h1 class="main-section__title">Как создать вирусное <br> видео</h1>
-					<div class="class">
-						<a href="#?" class="btn-light btn-with-icon">
+					<div class="row-video">
+						<a href="http://www.youtube.com/watch?v=7HKoqNJtMTQ" class="btn-light btn-with-icon popup-video-js">
 							@@include("includes/svg/play.svg")
 							<span>Ролик о роликах</span>
 						</a>
 					</div>
-					<div class="class">
-						<a href="#?" class="btn-art">
-							<span>Оставить<br> заявку</span>
-						</a>
+					<div class="row-callback">
+						<a href="#log-popup" class="btn-default btn-popup-js"><span>оставить<br> заявку</span></a>
 					</div>
-					<div class="class">
-						<a href="#?" class="move-next-section-js">
+					<div class="row-scroll">
+						<a href="#?" class="move-next-section move-next-section-js">
 							@@include("includes/svg/scroll.svg")
 							<span class="hide-text">Скрольте страницу вниз</span>
 						</a>
@@ -42,17 +41,24 @@
 			<div class="main-section__container">
 				<div class="main-section__align">
 					<div class="main-slider swiper-container main-slider-js">
-						<div class="parallax-bg" data-swiper-parallax="-23%">
-							<div style="background-image:url(img/bg-img.jpg)"></div>
-						</div>
+						<div class="parallax-bg" data-swiper-parallax="-30%"><div style="background-image:url(img/bg-img.jpg)">&nbsp;</div></div>
 						<div class="swiper-wrapper">
 							@@loop("_tpl_main-slider--items.html", "includes/json/main-slider--items.json")
 						</div>
 						<!-- pagination -->
 						<div class="main-slider-pagination swiper-pagination"></div>
 						<!-- navigation buttons -->
-						<div class="main-slider-prev swiper-button-prev">Предыдущий</div>
-						<div class="main-slider-next swiper-button-next">Слудующий</div>
+						<div class="main-slider-prev swiper-button-prev">
+							@@include("includes/svg/arr-l.svg")
+						</div>
+						<div class="main-slider-next swiper-button-next">
+							@@include("includes/svg/arr-r.svg")
+						</div>
+						<div class="main-slider__footer">
+							<div class="max-wrap layout">
+								<a href="#log-popup" class="btn-default btn-popup-js"><span>оставить<br> заявку</span></a>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

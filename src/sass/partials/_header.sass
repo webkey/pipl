@@ -31,6 +31,103 @@
 	position: absolute
 	left: 0
 	top: 0
+	height: 100%
+	+font(16px, round-float(24/16, 2))
+	text-transform: uppercase
+	color: white
+
+	& > span
+		+display-inline-block-middle
+
+	&::before
+		content: ""
+		+display-inline-block-middle
+		height: 100%
 
 /* slogan end
+
+/* user options
+$uo-space: 34px
+$uo-icon-size: 32px
+
+.user-options
+	position: relative
+	list-style: none
+	padding: 0
+	margin: 0 -#{round($uo-space/2)}
+	+clear-spacing
+	line-height: 1
+
+	.header &
+		position: absolute
+		right: 0
+		top: 0
+		height: 100%
+
+	&::before
+		content: ""
+		+display-inline-block-middle
+		height: 100%
+
+.user-options__item
+	position: relative
+	+display-inline-block-middle
+	+font($font-size, 1)
+	padding: 0 round($uo-space/2)
+	letter-spacing: normal
+
+	& > a
+		position: relative
+		display: block
+		color: white
+		line-height: 1
+		// для svg
+		fill: white
+		text-decoration: none
+		text-align: center
+
+		svg
+			+display-inline-block-top
+			+size($uo-icon-size)
+
+			& ~ span
+				padding-left: 10px
+
+			& ~ span.hide-text
+				padding-left: 0
+
+		path
+			fill: inherit
+			transition:
+				property: fill
+				duration: $animation-speed
+
+		& > span
+			+display-inline-block-middle
+
+		// hover
+		&:hover
+			color: $link-color
+			fill: $link-color
+
+		&.active
+			.for-close
+				opacity: 1
+				visibility: visible
+				z-index: 1
+
+			.for-open
+				opacity: 0
+				visibility: hidden
+				z-index: auto
+
+.user-options__item--phone
+	+font-alt-bold()
+	+font(24px, round-float(30/24, 2))
+
+	a, a:hover, .no-touchevents & a:hover
+		color: white
+
+/* user options
+
 /* HEADER end

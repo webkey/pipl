@@ -3,26 +3,28 @@
 @import ../../libs/include-media/dist/include-media
 
 /* swiper slider & default arrows
-$swiper-button-size: 52px, 22px
-$swiper-arrow-weight: 2px // толщина "древка" и линий "острея"
-$swiper-arrow-width: nth($swiper-button-size, 1) - (round($swiper-arrow-weight/2)) // длинна "древка" стрелки должно быть меньше длинны кнопки на несколько пискелов, чтобы не перекрывать "острие"
-$swiper-arrow-size: 13px // размер линий "острея"
+$swiper-button-size: 41px, 72px
+//$swiper-arrow-weight: 2px // толщина "древка" и линий "острея"
+//$swiper-arrow-width: nth($swiper-button-size, 1) - (round($swiper-arrow-weight/2)) // длинна "древка" стрелки должно быть меньше длинны кнопки на несколько пискелов, чтобы не перекрывать "острие"
+//$swiper-arrow-size: 13px // размер линий "острея"
 
 .swiper-button-prev, .swiper-button-next, .def-arrows--prev, .def-arrows--next
-	overflow: hidden
-	text-indent: -9999px
+	//overflow: hidden
+	//text-indent: -9999px
 	+size(nth($swiper-button-size, 1), nth($swiper-button-size, 2))
 	margin-top: -#{round(nth($swiper-button-size, 2)/2)}
 	will-change: transform
 	//background: rgba(255, 127, 80, 0.51) // для тестирования, чтобы видеть контуры кнопки
 	background: none
+	color: white
+	fill: white
 
-	&::before, &::after
+	//&::before, &::after
 		+pseudo()
 		border: $swiper-arrow-weight solid $text-color
 		transform: none
 
-	&::before
+	//&::before
 		+position(50%)
 		+size($swiper-arrow-width, 0)
 		border-left: none
@@ -30,18 +32,28 @@ $swiper-arrow-size: 13px // размер линий "острея"
 		border-bottom: none
 		margin: -#{round($swiper-arrow-weight/2)} 0 0 -#{round($swiper-arrow-width/2)}
 
-	&::after
+	//&::after
 		+size($swiper-arrow-size)
 		border-bottom: none
 		top: 50%
+
+	svg
+		+display-inline-block-top
+		+size(nth($swiper-button-size, 1), nth($swiper-button-size, 2))
+
+	path
+		fill: inherit
 
 // hover & disabled
 .swiper-button-prev, .swiper-button-next
 
 	// hover
 	&:not(.swiper-button-disabled):hover
-		&::before, &::after
-			border-color: $base-color
+		color: $link-color
+		fill: $link-color
+
+		//&::before, &::after
+			border-color: $link-color
 
 	// disabled
 	&.swiper-button-disabled

@@ -4,19 +4,17 @@
 
 /* magnific popup
 .mfp-bg
-	background-color: #3e3e3d
+	background-color: #212121
 
-.mfp-container
-	max-width: $page-layout-width
-
-	+media('<desk-hd')
-		max-width: 100%
+	&.mfp-bg.mfp-iframe-view
+		background-color: white
 /*
  *
  *====== Zoom effect ======
 .mfp-zoom-in
 	/* start state
-	.mfp-with-anim
+	//.mfp-with-anim
+	.mfp-content > div
 		opacity: 0
 		transition: all 0.2s ease-in-out
 		transform: scale(0.8)
@@ -25,23 +23,41 @@
 		opacity: 0
 		transition: all 0.3s ease-out
 
+	&.mfp-iframe-view
+		.mfp-close
+			opacity: 0
+			transition: all 0.3s ease-out
+
 	/* animate in
 	&.mfp-ready
-		.mfp-with-anim
+		//.mfp-with-anim
+		.mfp-content > div
 			opacity: 1
 			transform: scale(1)
 
 		&.mfp-bg
-			opacity: 0.5
+			opacity: 0.75
+
+		&.mfp-bg.mfp-iframe-view
+			opacity: 1
+
+		&.mfp-iframe-view
+			.mfp-close
+				opacity: 1
 
 	/* animate out
 	&.mfp-removing
-		.mfp-with-anim
+		//.mfp-with-anim
+		.mfp-content > div
 			transform: scale(0.8)
 			opacity: 0
 
 		&.mfp-bg
 			opacity: 0
+
+		&.mfp-iframe-view
+			.mfp-close
+				opacity: 0
 
 /*
  *
@@ -98,5 +114,17 @@
 .hinge
 	animation-duration: 1s
 	animation-name: hinge
+
+// video
+.mfp-iframe-holder
+	padding: 0
+
+	.mfp-content
+		max-width: $page-layout-width
+
+.mfp-iframe-scaler
+
+	.mfp-close
+		display: none
 
 /* magnific popup end

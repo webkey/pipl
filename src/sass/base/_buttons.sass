@@ -24,27 +24,29 @@
 /* btn-default
 [class*="btn-default"]
 	position: relative
-	+font-alt-bold
-	color: $btn-text-color
-	fill: $btn-text-color
-	padding: 12px 25px
-	border: 1px solid transparent
-	background: $btn-bg-color
-	box-shadow: none
+	padding: 17px 40px 18px
 	margin: 0
+	+font-light
+	color: white
+	fill: white
+	text-transform: uppercase
+	border: none
+	background: url(../../img/btn-art-bg-2x.png) no-repeat center
+	background-size: contain
+	box-shadow: none
+	line-height: 1
 
-	@if $animation-use
-		transition:
-			property: background-color, color, border-color
-			duration: $animation-speed
+	&::before
+		content: ""
+		+display-inline-block-middle
+		height: 32px
 
 	&, & > span
-		+font(14px, 18px)
+		+font(14px, 16px)
 		letter-spacing: $letter-spacing
 
-	// hover
-	.no-touchevents &:hover
-		background-color: $btn-bg-hover-color
+	& > span
+		+display-inline-block-middle
 
 	// disabled
 	&:disabled, &.disabled, &[data-disabled]
@@ -81,39 +83,6 @@
 				fill: $btn-disabled-color !important
 
 /* btn-default-alt end
-
-/* btn-art
-[class*="btn-art"]
-	position: relative
-	padding: 17px 20px 18px
-	margin: 0
-	+font-light
-	color: white
-	fill: white
-	text-transform: uppercase
-	border: none
-	background: url(../../img/btn-art-bg-2x.png) no-repeat center
-	background-size: contain
-	box-shadow: none
-
-	&, & > span
-		+font(14px, 16px)
-		letter-spacing: $letter-spacing
-
-	// hover
-	//.no-touchevents &:hover
-		color: $link-color
-		fill: $link-color
-
-	// disabled
-	&:disabled, &.disabled, &[data-disabled]
-		cursor: default
-		background-color: $btn-disabled-color !important
-
-		&::before, &::after
-			display: none
-
-/* btn-art end
 
 /* btn-light
 [class*="btn-light"]

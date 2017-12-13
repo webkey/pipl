@@ -9,52 +9,65 @@
 	position: relative
 	max-width: $default-popup-width
 	padding: $default-popup-space
-	background-color: $bg-color-alt
+	background-color: white
 	+push-auto
 
 // popup title
 .default-popup__title
-	+font-alt-bold
-	+font(24px, round-float(32/24, 2))
-	margin-bottom: $bottom-space--md
-	padding-right: 20px
-
-	+media('<desk-lg')
-		margin-bottom: $bottom-space--ml
+	display: block
+	+font-title
+	+font(48px, 1)
+	text-transform: uppercase
+	margin-bottom: 20px
+	text-align: center
+	color: $base-color
 
 	&:last-child
 		margin-bottom: 0
 
 // popup button close
-.mfp-close
-	$mfp-close-btn-size: 40px
+button.mfp-close
+	//$mfp-close-btn-size: 52px, 56px
+	$mfp-close-btn-size: 26px, 29px
 	$mfp-close-icon-size: 12px
 
-	+size($mfp-close-btn-size)
+	+size(nth($mfp-close-btn-size, 1), nth($mfp-close-btn-size, 2))
+	top: 30px
+	right: 30px
 	opacity: 1
+	text-indent: -9999px
+	overflow: hidden
+	color: $text-color
+	fill: $text-color
+	transition:
+		property: color
+		duration: $animation-speed
 
 	svg
 		position: absolute
 		left: 50%
 		top: 50%
-		+size($mfp-close-icon-size)
-		margin: -#{round($mfp-close-icon-size/2)} 0 0 -#{round($mfp-close-icon-size/2)}
+		+size(nth($mfp-close-btn-size, 1), nth($mfp-close-btn-size, 2))
+		margin: -#{round(nth($mfp-close-btn-size, 2)/2)} 0 0 -#{round(nth($mfp-close-btn-size, 1)/2)}
 		z-index: -1
 		pointer-events: none
 
 	path
 		fill: inherit
+		transition:
+			property: fill
+			duration: $animation-speed
 
-	.mfp-close-btn-in &
-		$space: round($popup-space - (($mfp-close-btn-size - $mfp-close-icon-size)/2))
+	&:active
+		top: 31px
 
-		fill: $text-color
-		color: $text-color
-		top: $space
-		right: $space
+	&:hover
+		color: $link-color
+		fill: $link-color
 
-		&:hover
-			fill: $link-color
-			color: $link-color
+// user-form
+.default-popup
+	.user-form
+		padding: 0
 
 /* popups end

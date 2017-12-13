@@ -1,22 +1,72 @@
 [
 	{
-		"src": "img/__temp-img-content-carousel-01.jpg",
-		"title": "Не используйте причудливые шрифты",
-		"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis est laboriosam possimus rerum sequi voluptate?"
+		"src": "img/img-01.svg",
+		"imgWidth": "667",
+		"imgHeight": "550",
+		"title": "Что это такое?",
+		"text": "Во-первых, с помощью или без наших наводящих вопросов (этот вариант существенно дешевле – шутка) вы доносите до нас <a href=\"#\"><b>цель</b></a> создания вирусного ролика. Она может быть разной: рассказать конечным потребителям о новом товаре, улучшить узнаваемость бренда, увеличить трафик сайта, «отмыть» деньги и т.п."
 	},
 	{
-		"src": "img/__temp-img-content-carousel-02.jpg",
-		"title": "Не используйте причудливые шрифты",
-		"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, cumque ducimus fuga obcaecati ratione repellat ut. Aperiam distinctio esse excepturi in, nobis, nulla obcaecati quae quos repellat, suscipit tenetur voluptatem."
+		"src": "img/img-02.svg",
+	  "imgWidth": "667",
+	  "imgHeight": "550",
+		"title": "Итак, Цель",
+		"text": "Далее, отталкиваясь от полученной информации и проанализировав рынки и вашу аудиторию, мы закупаемся шоколадом, запираемся в офисе и начинаем генерировать <b>идеи</b>"
 	},
 	{
-		"src": "img/__temp-img-content-carousel-03.jpg",
-		"title": "Не используйте причудливые шрифты",
-		"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, natus!"
+		"src": "img/img-03.svg",
+	  "imgWidth": "667",
+	  "imgHeight": "550",
+		"title": "Дальше, Идеи!",
+		"text": "Третий этап: мы встречаемся с вами в офисе (нашем, вашем, можем в боулинге), чтобы обсудить выбранную концепцию <b>сценария</b>, совместно вносим в него правки"
 	},
 	{
-		"src": "img/__temp-img-content-lg.jpg",
-		"title": "Не используйте причудливые шрифты",
-		"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto autem deleniti dolore eaque eos et eveniet explicabo incidunt iure laborum minima mollitia nostrum quam quas, suscipit ut vel vero! Odit."
+		"src": "img/img-04.svg",
+	  "imgWidth": "667",
+	  "imgHeight": "550",
+		"title": "Вырисовывается сценарий",
+		"text": "Произведя нехитрые вычисления в уме, мы называем вам честную <b>цену</b> производства ролика с такой идеей. Рукопожатия, обнимашки, лобызания (по обоюдному согласию)"
+	},
+	{
+		"src": "img/img-05.svg",
+	  "imgWidth": "667",
+	  "imgHeight": "550",
+		"title": "Цена на конец",
+		"text": "После начинается <b>подготовка</b> к съемкам. Проводим кастинг, находим локации, подбираем творческую группу. На всех этапах производим с вами согласования"
+	},
+	{
+		"src": "img/img-06.svg",
+	  "imgWidth": "667",
+	  "imgHeight": "550",
+		"title": "Подготовка всему голова",
+		"text": "Наконец, день <b>съемок</b>. Улыбки, смех, кофе, режиссер кричит: «Снято, всем спасибо!»"
+	},
+	{
+		"src": "img/img-07.svg",
+	  "imgWidth": "667",
+	  "imgHeight": "550",
+		"title": "Монтировкой по голове",
+		"text": "Последний этап – <b>продвижение</b> видео. Он не имеет прямого отношения к производству ролика, но мы специально его упоминаем, чтобы вы про него не забывали. Мы разработаем лучшую стратегию продвижения с учетом задач, аудитории и бюджета. Как говорится, как посеешь, так и просмотров будет"
+	},
+	{
+		"src": "img/img-08.svg",
+	  "imgWidth": "667",
+	  "imgHeight": "550",
+		"title": "Двигай отсюда",
+		"text": "Если кратенько, то все. Будем рады снять с вами что-то клевое и неординарное"
+	},
+	{
+		"src": "img/img-09.svg",
+	  "imgWidth": "667",
+	  "imgHeight": "550",
+		"title": "Это победа!",
+		"text": ""
+	},
+	{
+		"src": "img/img-10.svg",
+	  "imgWidth": "667",
+	  "imgHeight": "550",
+		"title": "Заказывай!",
+		"text": ""
 	}
 ]

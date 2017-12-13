@@ -1,0 +1,143 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/*LIGHT FORM
+
+.light-form
+	$form-input-height: 42px
+	$form-border-width: 0
+	$form-input-space-vt: floor(($form-input-height - $form-line-height - $form-border-width*2)/2)
+	$form-input-space-vb: ceil(($form-input-height - $form-line-height - $form-border-width*2)/2)
+	$form-input-space-h: 0
+	$form-bg-color: transparent
+
+	input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+		// position: relative // важно! поднять выше лейбла
+		box-shadow: none
+		border: #{$form-border-width} solid #{$form-border-color}
+		transition: none
+		cursor: pointer
+		background-color: $form-bg-color // важно! поднять выше лейбла
+		// z-index: 998 // важно! поднять выше лейбла
+
+	input[type="text"], input[type="password"], input[type="email"], input[type="search"], label
+		+size(100%, $form-input-height)
+		padding: #{$form-input-space-vt} $form-input-space-h #{$form-input-space-vb}
+		cursor: pointer
+
+	textarea
+		padding: #{$form-input-space-vt} $form-input-space-h #{$form-input-space-vb}
+		min-height: 130px
+		height: 130px
+		resize: none
+
+	//form error
+	input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+		&.error, .no-touchevents &.error
+			color: $form-error-color
+			box-shadow: none
+
+	.label-holder
+		+size(100%)
+		+font-bold
+		position: absolute
+		left: 0
+		bottom: 0
+		padding: 0
+		margin-bottom: 0
+		+antialiased
+		pointer-events: none // важно! поднять выше лейбла
+		z-index: 5
+
+		&:before, &:after
+			+pseudo()
+			bottom: 0
+			height: 0
+			border-top: 1px solid
+
+		&:before
+			border-top-color: $form-border-color
+			left: 0
+			width: 100%
+
+		label
+			display: block
+			+truncate(100%)
+			transform-origin: 0 0
+			line-height: $form-line-height
+			text-transform: uppercase
+			letter-spacing: 0.1em
+
+		&:before, &:after, & label
+			will-change: opacity, transform
+			transition:
+				property: color, transform, width, font
+				duration: 0.3s
+				timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+
+	&.input--focus, &.input--has-value
+		input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+			cursor: text
+			box-shadow: none
+
+		.label-holder
+			color: $text-color-light
+
+			label
+				+font-normal
+				transform: translate(0, -1.2em) scale(0.78)
+				transform: translateZ(0) translate(0, -1.2em) scale(0.78)
+				cursor: default
+
+	&.error
+		.label-holder
+			&:before, &:after
+				border-color: $form-error-color
+
+	.select
+		select,
+		.select2-container--default .select2-selection
+			height: $form-input-height
+			padding: #{$form-input-space-vt} #{$select-arrow-width} #{$form-input-space-vb} #{$form-input-space-h}
+			border: #{$form-border-width} solid #{$form-border-color}
+			background-color: $form-bg-color
+
+	.select
+		select
+			&, &.error
+				&,
+				& ~ .select2-container--default .select2-selection
+					border-color: transparent
+					padding-left: 0
+
+		&,
+		.select2-container--default .select2-selection--single .select2-selection__arrow b
+			&::before, &::after
+				right: 0
+
+			&::after
+				transform: rotate(-45deg)
+				right: 0
+
+		.select2-container--default
+			.select2-selection--single
+				.select2-selection__placeholder
+					color: transparent
+
+				.select2-selection__arrow
+					background-color: $form-bg-color
+					z-index: 2
+
+			// multiple
+			.select2-selection--multiple
+				padding: #{$form-input-space-vt - $multiple-item-space} #{$select-arrow-width} #{$form-input-space-vb - $multiple-item-space}  #{$select-space-h}
+
+	// focus
+	//&.input--focus
+		.select
+			&, .select2-container--default .select2-selection--single .select2-selection__arrow b
+				&::before
+					transform: rotate(-0.25turn)
+
+/*LIGHT FORM end
