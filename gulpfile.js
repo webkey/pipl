@@ -101,6 +101,7 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 	return gulp.src([
 		'src/libs/device.js/lib/device.min.js' // определение устройств
 		// , 'src/js/temp/**/*.js' // "умный" ресайз
+		, 'src/libs/jquery-mousewheel/jquery.mousewheel.min.js' // mousewheel
 		, 'src/libs/jquery-smartresize/jquery.debouncedresize.js' // "умный" ресайз
 		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
 		, 'src/libs/select2/dist/js/select2.full.min.js' // кастомный селект

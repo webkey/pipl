@@ -17,19 +17,34 @@ body
 	position: relative
 	z-index: 4
 
-	//padding: 0 #{$layout-spaces}
-
 /* header (layout)
 .header
 	position: fixed
 	top: 0
 	z-index: 1020
-	height: $header-height
 	width: 100%
 	//@if $page-layout-width
 	//	max-width: #{$page-layout-width}
 	//@else
 	//	max-width: 100%
+
+.header__holder
+	height: $header-height
+	+clear-spacing
+
+	+media('<desk-lg')
+		height: $header-height--lg
+
+	+media('<tab-lg')
+		height: $header-height--sm
+
+	+media('<mob-lg')
+		height: $header-height--mob
+
+	&::before
+		content: ""
+		+display-inline-block-middle
+		height: 100%
 
 /* header (layout) end
 
@@ -43,15 +58,23 @@ body
 
 /* page layout
 .max-wrap
-	max-width: $page-layout-width + $page-layout-space-horizontal*2
+	max-width: $page-layout-width + $layout-spaces*2
 
 .layout
-	+padding-horizontal($page-layout-space-horizontal)
+	+padding-horizontal($layout-spaces)
 	+push-auto
 
+	+media('<desk-md')
+		+padding-horizontal($layout-spaces--lg)
+
+	+media('<desk-sm')
+		+padding-horizontal($layout-spaces--sm)
+
 	+media('<tab-lg')
-		.main &
-			+padding-horizontal(0)
+		+padding-horizontal($layout-spaces--tab)
+
+	+media('<mob-lg')
+		+padding-horizontal($layout-spaces--mob)
 
 /* page layout end
 
@@ -82,36 +105,143 @@ body
 
 /* scroll section (layout)
 .main-section
-	padding-top: $header-height
+	+padding-vertical($header-height, round-float($header-height/2, 1))
 
 	+media('<desk-lg')
-		padding-top: $header-height--lg
-
-	+media('<desk-sm')
-		padding-top: 0
+		+padding-vertical($header-height--lg, round-float($header-height--lg/2, 1))
 
 .main-section--main
-	padding-top: 0
+	+padding-vertical(0)
 
 	.main-section__container
-		padding-top: $header-height
+		+padding-vertical($header-height, round-float($header-height/2, 1))
 
 		+media('<desk-lg')
-			padding-top: $header-height--lg
+			+padding-vertical($header-height--lg, round-float($header-height--lg/2, 1))
 
-		+media('<desk-sm')
-			padding-top: 0
+		+media('<tab-lg')
+			+padding-vertical($header-height--sm, round-float($header-height--sm/4, 1))
+
+		+media('<tab-lg')
+			+padding-vertical($header-height--mob, round-float($header-height--mob/4, 1))
 
 .main-section--info
-	padding-top: 0
+	+padding-vertical(0)
+
+	+media('<tab-lg')
+		+padding-vertical($header-height--sm, round-float($header-height--sm/2, 1))
 
 	.main-slider__item
-		padding-top: $header-height
+		+padding-vertical($header-height, round-float($header-height/2, 1))
 
 		+media('<desk-lg')
-			padding-top: $header-height--lg
+			+padding-vertical($header-height--lg, round-float($header-height--lg/2, 1))
 
-		+media('<desk-sm')
-			padding-top: 0
+		+media('<tab-lg')
+			+padding-vertical(0, $header-height--sm)
+
+			&:last-child
+				+padding-vertical(0, round($header-height--sm/2))
 
 /* scroll section (layout) end
+
+/* main slider (layout)
+.main-slider__img
+	width: calc(100% - #{$main-slider-content-width} - #{$layout-spaces})
+
+	+media('<desk-md')
+		width: calc(100% - #{$main-slider-content-width--lg} - #{$layout-spaces--lg})
+
+	+media('<desk-sm')
+		width: calc(100% - #{$main-slider-content-width--sm} - #{$layout-spaces--sm})
+
+	+media('<tab-lg')
+		width: 50%
+
+	+media('<tab-sm')
+		width: auto
+
+.main-slider__content
+	width: calc(#{$main-slider-content-width} + #{$layout-spaces})
+	padding-right: $layout-spaces
+
+	+media('<desk-md')
+		width: calc(#{$main-slider-content-width--lg} + #{$layout-spaces--lg})
+		padding-right: $layout-spaces--lg
+
+	+media('<desk-sm')
+		width: calc(#{$main-slider-content-width--sm} + #{$layout-spaces--sm})
+		padding-right: $layout-spaces--sm
+
+	+media('<tab-lg')
+		width: 50%
+
+		.main-slider__item:nth-child(even) &
+			padding-right: 0
+			padding-left: $layout-spaces--tab
+
+	+media('<tab-sm')
+		width: auto
+		padding: 0
+
+		.main-slider__item:nth-child(even) &
+			padding-left: 0
+
+.main-slider__footer
+	bottom: 80px
+	bottom: round-float($header-height/2, 1)
+
+	+media('<desk-lg')
+		bottom: round-float($header-height/2, 1)
+
+	+media('<tab-lg')
+		bottom: auto
+
+.main-slider-pagination
+	bottom: 85px
+	bottom: round-float($header-height/2, 1)
+	+padding-horizontal($layout-spaces)
+	width: $page-layout-width + $layout-spaces*2
+	max-width: 100%
+	min-width: 35px
+
+	+media('<desk-lg')
+		bottom: round-float($header-height/2, 1)
+
+	+media('<desk-md')
+		+padding-horizontal($layout-spaces--lg)
+		width: $page-layout-width + $layout-spaces--lg*2
+
+	+media('<desk-sm')
+		+padding-horizontal($layout-spaces--sm)
+		width: $page-layout-width + $layout-spaces--sm*2
+
+.main-slider-prev
+	left: 80px
+
+	+media('<desk-hd')
+		margin-left: -#{round(nth($swiper-button-size, 1)/2)}
+		left: round($layout-spaces/2)
+
+	+media('<desk-md')
+		left: round($layout-spaces--lg/2)
+
+	+media('<desk-sm')
+		margin-left: -#{round(nth($swiper-button-size--sm, 1)/2)}
+		left: round($layout-spaces--sm/2)
+
+.main-slider-next
+	right: 80px
+
+	+media('<desk-hd')
+		margin-right: -#{round(nth($swiper-button-size, 1)/2)}
+		right: round($layout-spaces/2)
+
+	+media('<desk-md')
+		right: round($layout-spaces--lg/2)
+
+	+media('<desk-sm')
+		margin-right: -#{round(nth($swiper-button-size--sm, 1)/2)}
+		right: round($layout-spaces--sm/2)
+
+/* main slider (layout) end

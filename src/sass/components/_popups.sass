@@ -12,6 +12,13 @@
 	background-color: white
 	+push-auto
 
+	+media('<desk-lg')
+		max-width: $default-popup-width--lg
+		padding: $default-popup-space--lg
+
+	+media('<tab-lg')
+		padding: $layout-spaces--tab
+
 // popup title
 .default-popup__title
 	display: block
@@ -21,6 +28,9 @@
 	margin-bottom: 20px
 	text-align: center
 	color: $base-color
+
+	+media('<tab-lg')
+		font-size: 36px
 
 	&:last-child
 		margin-bottom: 0
@@ -42,6 +52,10 @@ button.mfp-close
 	transition:
 		property: color
 		duration: $animation-speed
+
+	+media('<tab-lg')
+		right: 15px
+		top: 15px
 
 	svg
 		position: absolute

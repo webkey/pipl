@@ -24,17 +24,17 @@
 /* btn-default
 [class*="btn-default"]
 	position: relative
-	padding: 17px 40px 18px
+	padding: 17px 29px 18px 21px
 	margin: 0
 	+font-light
 	color: white
 	fill: white
 	text-transform: uppercase
 	border: none
-	background: url(../../img/btn-art-bg-2x.png) no-repeat center
-	background-size: contain
+	background: none
 	box-shadow: none
 	line-height: 1
+	text-align: center
 
 	&::before
 		content: ""
@@ -46,43 +46,40 @@
 		letter-spacing: $letter-spacing
 
 	& > span
+		position: relative
 		+display-inline-block-middle
+		z-index: 1
+
+	& > svg
+		display: block
+		position: absolute
+		top: 0
+		left: 0
+		+size(100%)
+
+		path
+			fill: $base-color
+			transition:
+				property: fill
+				duration: $animation-speed
+
+	// hover
+	&:hover
+		& > svg
+			path
+				fill: #ff4026
+
+	// active
+	&:active
+		top: 1px
 
 	// disabled
 	&:disabled, &.disabled, &[data-disabled]
 		cursor: default
 		background-color: $btn-disabled-color !important
-
-		&::before, &::after
-			display: none
+		top: 0
 
 /* btn-default end
-
-/* btn-default-alt
-.btn-default-alt
-	color: $btn-bg-color
-	border: 2px solid $btn-bg-color
-	background: $btn-text-color
-
-	.no-touchevents &:hover
-		background: $btn-bg-color
-		color: $btn-text-color
-
-	&:disabled, &.disabled, &[data-disabled]
-		cursor: default
-		background-color: white !important
-		border-color: $btn-disabled-color !important
-		color: $btn-disabled-color !important
-
-		&::before, &::after
-			display: none
-
-		& > i
-			&::before, &::after
-				border-color: $btn-disabled-color !important
-				fill: $btn-disabled-color !important
-
-/* btn-default-alt end
 
 /* btn-light
 [class*="btn-light"]
@@ -96,6 +93,9 @@
 	border: none
 	background: none
 	box-shadow: none
+	transition:
+		property: color
+		duration: $animation-speed
 
 	&, & > span
 		+font(16px, 24px)
@@ -129,6 +129,9 @@
 
 	path
 		fill: inherit
+		transition:
+			property: fill
+			duration: $animation-speed
 
 	span
 		text-align: left

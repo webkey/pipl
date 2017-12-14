@@ -2,7 +2,6 @@
 @import ../utils/placeholders
 
 // medium query
-//$breakpoints: ('mob-sm': 320px, 'mob-md': 480px, 'mob-lg': 640px, 'tab-sm': 768px, 'tab-lg': 992px, 'desk-sm': 1200px, 'desk-md': 1366px, 'desk-lg': 1600px, 'desk-hd': 1920px)
 $breakpoints: ('desk-hd': 1920px, 'desk-lg': 1600px, 'desk-md': 1366px, 'desk-sm': 1200px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 320px)
 
 // base
@@ -98,10 +97,10 @@ $page-layout-space-horizontal: 0 !default
 $page-layout-width: 1520px !default
 // отступы между основновными элементами странницы
 $layout-spaces: 100px !default
-$layout-spaces--hd: 80px !default
-$layout-spaces--lg: 50px !default
-$layout-spaces--sm: 30px !default
-$layout-spaces--mob: 20px !default
+$layout-spaces--lg: 80px !default
+$layout-spaces--sm: 50px !default
+$layout-spaces--tab: 30px !default
+$layout-spaces--mob: 15px !default
 // минимальные отступы слева и справа у текствого блока
 $text-layout-space: 60px !default
 $text-layout-space--md: 30px !default
@@ -114,21 +113,27 @@ $grid-space--lg: 20px !default
 $grid-space--sm: 10px !default
 
 // header
-$header-height: 170px !default
-$header-height--lg: 60px !default
-
-// sidebar
-$sidebar-width: 260px !default
-
-// aside
-$aside-width: 160px !default
+$header-height: 21vh !default
+$header-height--lg: 18vh !default
+$header-height--sm: 100px !default
+$header-height--mob: 60px !default
 
 // footer
 $footer-grid-space: 30px !default
 
+// main-slider
+$main-slider-content-width: 570px !default
+$main-slider-content-width--lg: 460px !default
+$main-slider-content-width--sm: 420px !default
+// =========================
+$swiper-button-size: 41px, 72px !default
+$swiper-button-size--sm: 24px, 47px !default
+
 // popups
 $default-popup-width: 976px !default
 $default-popup-space: 100px !default
+$default-popup-width--lg: 768px !default
+$default-popup-space--lg: 50px !default
 
 // social color
 $facebook-color: #3a589e !default
@@ -152,6 +157,7 @@ $form-success-color: #00a129 !default
 $form-bottom-space: 40px !default
 $form-bottom-space--sm: 30em !default
 $form-gap: 100px !default
+$form-gap--lg: 40px !default
 // ========checkbox&radio==========
 $checkbox-color: $link-color
 // =========form font=========

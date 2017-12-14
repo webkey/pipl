@@ -119,8 +119,17 @@
 .mfp-iframe-holder
 	padding: 0
 
+	+media('<desk-lg')
+		+padding-horizontal(20px)
+
 	.mfp-content
-		max-width: $page-layout-width
+		max-width: 1200px
+
+		+media('<desk-lg')
+			max-width: 960px
+
+		+media('<desk-sm')
+			max-width: 800px
 
 .mfp-iframe-scaler
 

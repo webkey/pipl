@@ -3,22 +3,55 @@
 @import ../../libs/include-media/dist/include-media
 
 /* HEADER
+.header
+	&::before
+		+pseudo()
+		left: 0
+		top: 0
+		width: 100%
+		height: 130%
+		z-index: -1
+		pointer-events: none
+		+linear-gradient(to bottom, rgba(0,0,0,0.94) 0%,rgba(0,0,0,0.84) 14%,rgba(0,0,0,0.7) 28%,rgba(0,0,0,0.35) 59%,rgba(0,0,0,0.18) 75%,rgba(0,0,0,0.06) 89%,rgba(0,0,0,0) 100%)
+		display: none
+
+		+media('<tab-lg')
+			display: block
+
 .header__holder
 	position: relative
-	padding: 10px 0
+	text-align: center
 	+clear
+
+	+media('<tab-sm')
+		text-align: left
+		//padding-left: 100px
+
+	//+media('<mob-lg')
+		padding-left: 80px
 
 /* logo
 .logo
-	display: block
+	//display: block
+	+display-inline-block-middle
 	position: relative
 	background: url(../../img/logo.png) no-repeat
+	background-size: contain
 	width: 172px
 	height: 100px
 	text-indent: -9999px
 	overflow: hidden
 	+push-auto
+	+font($font-size, $line-height)
 	z-index: 5
+
+	+media('<tab-lg')
+		width: 110px
+		height: 64px
+
+	+media('<mob-lg')
+		width: 80px
+		height: 47px
 
 	a
 		display: block
@@ -32,9 +65,19 @@
 	left: 0
 	top: 0
 	height: 100%
-	+font(16px, round-float(24/16, 2))
+	+font(16px, round-float(20/16, 2))
+	letter-spacing: 0.1em
 	text-transform: uppercase
 	color: white
+
+	+media('<tab-sm')
+		max-width: 100px
+		text-align: left
+		display: none
+
+	//+media('<mob-lg')
+		+font(12px, round-float(16/12, 2))
+		max-width: 80px
 
 	& > span
 		+display-inline-block-middle
@@ -48,6 +91,7 @@
 
 /* user options
 $uo-space: 34px
+$uo-space--mob: 20px
 $uo-icon-size: 32px
 
 .user-options
@@ -57,6 +101,9 @@ $uo-icon-size: 32px
 	margin: 0 -#{round($uo-space/2)}
 	+clear-spacing
 	line-height: 1
+
+	+media('<tab-sm')
+		margin: 0 -#{round($uo-space--mob/2)}
 
 	.header &
 		position: absolute
@@ -75,6 +122,9 @@ $uo-icon-size: 32px
 	+font($font-size, 1)
 	padding: 0 round($uo-space/2)
 	letter-spacing: normal
+
+	+media('<tab-sm')
+		padding: 0 round($uo-space--mob/2)
 
 	& > a
 		position: relative
@@ -125,8 +175,27 @@ $uo-icon-size: 32px
 	+font-alt-bold()
 	+font(24px, round-float(30/24, 2))
 
+	+media('<desk-md')
+		font-size: 20px
+
+	+media('<desk-sm')
+		font-size: 18px
+
+	+media('<tab-sm')
+		display: none
+
+	//+media('<mob-md')
+		width: 120px
+
 	a, a:hover, .no-touchevents & a:hover
 		color: white
+
+//.user-options__item--share
+	+media('<mob-md')
+		position: absolute
+		right: $layout-spaces--mob
+		padding: 0
+		top: 100%
 
 /* user options
 

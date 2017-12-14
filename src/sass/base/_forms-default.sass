@@ -44,6 +44,9 @@ label, .label
 	font-size: 0
 	letter-spacing: -4px
 
+	+media('<desk-lg')
+		+margin-horizontal(-#{round($form-gap--lg*0.5)})
+
 	.input-wrap
 		+display-inline-block-top
 		width: calc(100% * 0.5 - #{$form-gap})
@@ -52,6 +55,10 @@ label, .label
 
 		font-size: $font-size
 		letter-spacing: normal
+
+		+media('<desk-lg')
+			width: calc(100% * 0.5 - #{$form-gap--lg})
+			+margin-horizontal(#{round($form-gap--lg*0.5)})
 
 		+media('<mob-lg')
 			display: block

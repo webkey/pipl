@@ -180,11 +180,12 @@ function slidersInit() {
 			var $thisBtnPrev = $('.swiper-button-prev', $thisSlider);
 			var $thisFractPag = $('.swiper-pagination', $thisSlider);
 
-			new Swiper($thisSlider, {
+			var thisSwiper = new Swiper($thisSlider, {
 				// Optional parameters
 				speed: 800,
 				parallax: true,
 				loop: false,
+				mousewheel: true,
 				// Keyboard
 				keyboardControl: true,
 
@@ -194,10 +195,40 @@ function slidersInit() {
 
 				// Pagination
 				pagination: $thisFractPag,
-				paginationType: 'fraction'
+				paginationType: 'fraction',
+
+				breakpoints: {
+					992: {
+						simulateTouch: false,
+						shortSwipes: false,
+						longSwipes: false,
+						followFinger: false,
+						allowTouchMove: false,
+						touchMoveStopPropagation: false
+					}
+				}
+			});
+
+			$(document).on('mousewheel', function(event) {
+
+				if(window.innerWidth > 991 && $('.main-section--info').hasClass('fp-completely') && !thisSwiper.animating){
+
+					if(thisSwiper.activeIndex) {
+						$.fn.fullpage.setAllowScrolling(false);
+					} else {
+						$.fn.fullpage.setAllowScrolling(true);
+					}
+					if(event.deltaY < 0) {
+						thisSwiper.slideNext();
+					} else {
+						thisSwiper.slidePrev();
+					}
+				}
 			});
 		});
 	}
+
+
 }
 
 /**
@@ -212,7 +243,7 @@ function fullPageInitial() {
 			sectionSelector: '.main-section-js',
 			scrollingSpeed: 600,
 			recordHistory: true,
-			responsiveWidth: 1200,
+			responsiveWidth: 992,
 			responsiveHeight: 400,
 
 			// dots navigation
@@ -252,10 +283,8 @@ function popupInitial(){
 			callbacks: {
 				open: function () {
 					$.fn.fullpage.setAllowScrolling(false);
-					console.log(1);
 				}, close: function () {
 					$.fn.fullpage.setAllowScrolling(true);
-					console.log(2);
 				}
 			}
 		});
@@ -265,6 +294,7 @@ function popupInitial(){
 	if ($videoPopup.length) {
 		$videoPopup.magnificPopup({
 			disableOn: 500,
+			midClick: false,
 			type: 'iframe',
 			mainClass: 'mfp-zoom-in mfp-iframe-view',
 			removalDelay: 500,
