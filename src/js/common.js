@@ -100,80 +100,14 @@ function inputHasValueClass() {
 }
 
 /**
- * !Initial custom select for cross-browser styling
- * */
-function customSelect(select) {
-	$.each(select, function () {
-		var $thisSelect = $(this);
-		// var placeholder = $thisSelect.attr('data-placeholder') || '';
-		$thisSelect.select2({
-			language: "ru",
-			width: '100%',
-			containerCssClass: 'cselect-head',
-			dropdownCssClass: 'cselect-drop'
-			// , placeholder: placeholder
-		});
-	})
-}
-
-/**
  * !Initial sliders on the project
  * */
 function slidersInit() {
-	//images carousel
-	var $imagesCarousel = $('.images-slider');
-
-	if($imagesCarousel.length){
-		var slideCounterTpl = '' +
-			'<div class="slider-counter">' +
-				'<span class="slide-curr">0</span>/<span class="slide-total">0</span>' +
-			'</div>';
-
-		$imagesCarousel.each(function () {
-			var $currentImagesCarousel = $(this);
-			var $images = $currentImagesCarousel.find('.images-slider__list');
-			var $titles = $currentImagesCarousel.find('.flashes');
-			var dur = 200;
-
-			$images.on('init', function (event, slick) {
-				$(slick.$slider).append($(slideCounterTpl).clone());
-
-				$('.slide-total', $(slick.$slider)).text(slick.$slides.length);
-				$('.slide-curr', $(slick.$slider)).text(slick.currentSlide + 1);
-			});
-
-			$images.slick({
-				fade: false,
-				speed: dur,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				asNavFor: $titles,
-				// initialSlide: 2,
-				lazyLoad: 'ondemand',
-				infinite: true,
-				dots: true,
-				arrows: true
-			}).on('beforeChange', function (event, slick, currentSlide, nextSlider) {
-				$('.slide-curr', $(slick.$slider)).text(nextSlider + 1);
-			});
-
-			$titles.slick({
-				fade: true,
-				speed: dur,
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				infinite: true,
-				asNavFor: $images,
-				dots: false,
-				arrows: false
-			});
-
-		});
-	}
-
 	/*main slider*/
 	var $mainSlider = $('.main-slider-js');
 	if ($mainSlider.length) {
+		var dur = 800;
+
 		$mainSlider.each(function () {
 			var $thisSlider = $(this);
 			var $thisBtnNext = $('.swiper-button-next', $thisSlider);
@@ -182,7 +116,7 @@ function slidersInit() {
 
 			var thisSwiper = new Swiper($thisSlider, {
 				// Optional parameters
-				speed: 800,
+				speed: dur,
 				parallax: true,
 				loop: false,
 				mousewheel: true,
@@ -210,18 +144,21 @@ function slidersInit() {
 			});
 
 			$(document).on('mousewheel', function(event) {
+				if(window.innerWidth < 992) {
+					return;
+				}
 
-				if(window.innerWidth > 991 && $('.main-section--info').hasClass('fp-completely') && !thisSwiper.animating){
-
-					if(thisSwiper.activeIndex) {
-						$.fn.fullpage.setAllowScrolling(false);
-					} else {
-						$.fn.fullpage.setAllowScrolling(true);
-					}
+				if($('.main-section--info').hasClass('fp-completely') && !thisSwiper.animating){
 					if(event.deltaY < 0) {
 						thisSwiper.slideNext();
 					} else {
 						thisSwiper.slidePrev();
+					}
+
+					if(thisSwiper.previousIndex === 0 && thisSwiper.realIndex === 0) {
+						$.fn.fullpage.setAllowScrolling(true);
+					} else {
+						$.fn.fullpage.setAllowScrolling(false);
 					}
 				}
 			});
@@ -557,10 +494,7 @@ $(document).ready(function () {
 	printShow();
 	inputToggleFocusClass();
 	inputHasValueClass();
-	// inputFilledClass();
-	customSelect($('select.cselect'));
 	slidersInit();
-	objectFitImages(); // object-fit-images initial
 	fullPageInitial();
 	popupInitial();
 	toggleDropInit();

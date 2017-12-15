@@ -76,7 +76,7 @@ gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Созд
 gulp.task('mergeCssLibs', function () { // Таск для мержа css библиотек
 	return gulp.src([
 		'src/css/temp/*.css' // see gulpfile-special.js
-		, 'src/libs/select2/dist/css/select2.min.css' // стили для кастомного селекта
+		// , 'src/libs/select2/dist/css/select2.min.css' // стили для кастомного селекта
 		, 'src/libs/fullpage.js/dist/jquery.fullpage.min.css' // стили для плагина постраничной прокрутки
 		, 'src/libs/magnific-popup/dist/magnific-popup.css' // Magnific Popup - v1.1.0 - 2016-02-20 http://dimsemenov.com/plugins/magnific-popup/
 		, 'src/libs/swiper/dist/css/swiper.min.css' // стили для swiper slider
@@ -100,16 +100,11 @@ gulp.task('createCustomModernizr', function (done) { // Таск для форм
 gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск для мераж js библиотек
 	return gulp.src([
 		'src/libs/device.js/lib/device.min.js' // определение устройств
-		// , 'src/js/temp/**/*.js' // "умный" ресайз
+		// , 'src/js/temp/**/*.js'
 		, 'src/libs/jquery-mousewheel/jquery.mousewheel.min.js' // mousewheel
 		, 'src/libs/jquery-smartresize/jquery.debouncedresize.js' // "умный" ресайз
 		, 'src/libs/jquery-placeholder/jquery.placeholder.min.js' // поддержка плейсхолдера в старых браузерах
-		, 'src/libs/select2/dist/js/select2.full.min.js' // кастомный селект
-		, 'src/libs/select2/dist/js/i18n/ru.js' // локализация для кастомного селекта
-		// , 'src/js/temp/filer.min.js' // инпут файл
-		, 'src/libs/slick-carousel/slick/slick.min.js' // slick slider
 		, 'src/libs/swiper/dist/js/swiper.min.js' // swiper slider
-		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers
 		// , 'src/libs/fullpage.js/vendors/scrolloverflow.min.js' // расширение для плагина постраничной прокрутки, позволяющее добавлять скролл внутри страницы
 		, 'src/libs/fullpage.js/dist/jquery.fullpage.min.js' // скрипт для постраничной прокрутки
 		, 'src/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Magnific Popup - v1.1.0 - 2016-02-20 http://dimsemenov.com/plugins/magnific-popup/
@@ -166,7 +161,7 @@ gulp.task('copyImgToDist', function () {
 
 gulp.task('build', ['cleanDistFolder', 'htmlCompilation', 'copyImgToDist', 'sassCompilation', 'mergeCssLibs', 'createCustomModernizr', 'copyLibsScriptsToJs'], function () {
 
-	gulp.src('src/css/*.css')
+	gulp.src(['src/css/*.css', 'src/css/*.map'])
 	.pipe(gulp.dest('dist/css'));
 
 	gulp.src('src/fonts/**/*') // Переносим шрифты в продакшен

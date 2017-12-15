@@ -247,12 +247,23 @@
 		+clear-spacing
 		height: 100%
 
+		&::before
+			content: ""
+			+display-inline-block-middle
+			height: 100%
+
+			+media('<tab-lg')
+				content: none
+
 .main-slider__img
 	position: relative
 	+display-inline-block-middle
 	+font($font-size, $line-height)
 	letter-spacing: normal
-	height: 100%
+	height: 90%
+
+	+media('<tab-lg')
+		height: auto
 
 	+media('<tab-sm')
 		display: none

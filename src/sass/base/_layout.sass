@@ -130,12 +130,15 @@ body
 
 	+media('<tab-lg')
 		+padding-vertical($header-height--sm, round-float($header-height--sm/2, 1))
+		//+padding-vertical(round-float($header-height--sm/2, 1))
 
 	.main-slider__item
-		+padding-vertical($header-height, round-float($header-height/2, 1))
+		//+padding-vertical($header-height, round-float($header-height/2, 1))
+		+padding-vertical(round-float($header-height, 1))
 
 		+media('<desk-lg')
-			+padding-vertical($header-height--lg, round-float($header-height--lg/2, 1))
+			//+padding-vertical($header-height--lg, round-float($header-height--lg/2, 1))
+			+padding-vertical(round-float($header-height--lg, 1))
 
 		+media('<tab-lg')
 			+padding-vertical(0, $header-height--sm)
