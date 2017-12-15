@@ -69,36 +69,45 @@
 	+media('<tab-lg')
 		display: none
 
-	& > div
+	.scene__layer
 		position: absolute
 		left: 0
 		top: 0
 		+size(100%)
-		text-indent: -9999px
-		overflow: hidden
-		font-size: 0
-		line-height: 0
-		background-position: center
-		background-repeat: no-repeat
-		background-size: cover
+
+		& > div
+			position: absolute
+			left: -6%
+			top: -6%
+			+size(112%)
+			text-indent: -9999px
+			overflow: hidden
+			font-size: 0
+			line-height: 0
+			background-position: center
+			background-repeat: no-repeat
+			background-size: cover
 
 .main-section__align
 	height: 100%
 	margin: 0 auto
 
 .main-section--main
-	display: table
-	table-layout: fixed
-	width: 100%
-	text-align: center
+	transition: none
 
-	+media('<tab-lg')
-		height: 100vh !important
-		min-height: 480px
-		opacity: 0
-		visibility: hidden
+	.main-section__holder
+		display: table
+		table-layout: fixed
+		width: 100%
+		height: 100%
+		text-align: center
+		transition:
+			property: opacity, visibility
+			duration: $animation-speed
 
-		&.fp-completely
+		+media('<tab-lg')
+			height: 100vh !important
+			min-height: 480px
 			opacity: 1
 			visibility: visible
 
@@ -108,8 +117,6 @@
 		transition:
 			property: opacity, visibility
 			duration: $animation-speed
-
-		+media('<tab-lg')
 
 	.main-section__align
 		height: auto
@@ -199,32 +206,41 @@
 	top: 0
 	+size(150%, 100%)
 
+	& ~ .parallax-bg
+		width: 210%
+		opacity: 0.5
+
 	+media('<tab-lg')
 		display: none
 
-	& > div
-		text-indent: -9999px
-		overflow: hidden
+	.scene__layer
 		position: absolute
-		left: 0
-		top: 0
 		+size(100%)
-		background-size: 100% 100%
-		background-position: center
-		//opacity: 0
-		//transform: scale(1.2)
-		//transform: scale(1.2) translateZ(0)
-		will-change: opacity, transform
-		transition:
-			duration: 0.5s
-			property: opacity, transform
+		+position(0, 0)
 
-		.active &
-			//opacity: 1
-			//transform: scale(1)
-			//transform: scale(1) translateZ(0)
+		& > div
+			text-indent: -9999px
+			overflow: hidden
+			position: absolute
+			left: -6%
+			top: -6%
+			+size(112%)
+			background-size: 100% 100%
+			background-position: center
+			//opacity: 0
+			//transform: scale(1.2)
+			//transform: scale(1.2) translateZ(0)
+			will-change: opacity, transform
 			transition:
-				duration: 1s
+				duration: 0.5s
+				property: opacity, transform
+
+			.active &
+				//opacity: 1
+				//transform: scale(1)
+				//transform: scale(1) translateZ(0)
+				transition:
+					duration: 1s
 
 .main-slider-prev, .main-slider-next, .main-slider-pagination, .main-slider__content
 	user-select: none
@@ -320,6 +336,7 @@
 		duration: 1.5s
 
 	+media('<tab-lg')
+		opacity: 1
 		.main-slider__item:nth-child(even) &
 			direction: ltr
 
@@ -329,7 +346,7 @@
 .main-slider__title
 	display: block
 	+font-title
-	+font(72px, 1)
+	+font(68px, 1)
 	color: white
 	text-transform: uppercase
 	cursor: default
@@ -338,10 +355,10 @@
 	margin-bottom: 40px
 
 	+media('<desk-md')
-		font-size: 60px
+		font-size: 56px
 
 	+media('<desk-sm')
-		font-size: 46px
+		font-size: 40px
 
 	+media('<tab-sm')
 		text-align: center
@@ -353,9 +370,10 @@
 		margin-bottom: 0
 
 	& > em
-		display: none
+		//display: none
+		font-size: 0.9em
 
-		+media('<tab-lg')
+		//+media('<tab-lg')
 			display: inline
 
 .main-slider__text
@@ -453,11 +471,13 @@
 	a
 		color: inherit
 		text-decoration: none
-		transition:
-			property: color
-			duration: $animation-speed
+
+		span
+			transition:
+				property: color
+				duration: $animation-speed
 		
-		.no-touchevents &:hover
+		.no-touchevents &:hover span
 			color: #00ef85
 
 /* developer end
@@ -502,6 +522,10 @@ $social-share-size: 40px !default
 	&::after
 		transform: rotate(45deg)
 
+	svg
+		&:nth-child(1)
+			display: none
+
 	// hover
 	.no-touchevents &:hover
 		border-color: $link-color
@@ -510,6 +534,15 @@ $social-share-size: 40px !default
 	// active
 	&:active
 		top: 1px
+
+	// is open
+	.is-open &
+		svg
+			&:nth-child(1)
+				display: inline-block
+
+			&:nth-child(2)
+				display: none
 
 .social-share__list
 	display: block

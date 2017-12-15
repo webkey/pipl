@@ -15,27 +15,32 @@
 <div class="main">
 	<div class="main-sections main-sections-js">
 		<section class="main-section main-section-js main-section--main" data-anchor="sectionMain">
-			<div class="main-section__container">
-				<div class="main-section__bg"><div style="background-image:url(img/bg-img.jpg)">&nbsp;</div></div>
-				<div class="main-section__align max-wrap layout">
-					<h1 class="main-section__title">Как мы создаем вирусное видео</h1>
-					<div class="row-video">
-						<a href="https://www.youtube.com/watch?v=tr5qBxU8a6w" class="btn-light btn-with-icon popup-video-js">
-							@@include("includes/svg/play.svg")
-							<span>Ролик о роликах</span>
-						</a>
-					</div>
-					<div class="row-callback">
-						<a href="#log-popup" class="btn-default open-popup-js">
-							@@include("includes/svg/btn.svg")
-							<span>оставить<br> заявку</span>
-						</a>
-					</div>
-					<div class="row-scroll">
-						<a href="#?" class="move-next-section move-next-section-js">
-							@@include("includes/svg/scroll.svg")
-							<span class="hide-text">Скрольте страницу вниз</span>
-						</a>
+			<div class="main-section__bg" id="scene">
+				<div class="scene__layer" data-depth="0.2"><div style="background-image:url(img/bg-main-01.jpg)">&nbsp;</div></div>
+				<div class="scene__layer" data-depth="0.4"><div style="background-image:url(img/bg-main-02.png)">&nbsp;</div></div>
+			</div>
+			<div class="main-section__holder">
+				<div class="main-section__container">
+					<div class="main-section__align max-wrap layout">
+						<h1 class="main-section__title">Как мы создаем вирусное видео</h1>
+						<div class="row-video">
+							<a href="https://www.youtube.com/watch?v=tr5qBxU8a6w" class="btn-light btn-with-icon popup-video-js">
+								@@include("includes/svg/play.svg")
+								<span>Ролик о роликах</span>
+							</a>
+						</div>
+						<div class="row-callback">
+							<a href="#log-popup" class="btn-default open-popup-js">
+								@@include("includes/svg/btn.svg")
+								<span>оставить<br> заявку</span>
+							</a>
+						</div>
+						<div class="row-scroll">
+							<a href="#?" class="move-next-section move-next-section-js">
+								@@include("includes/svg/scroll.svg")
+								<span class="hide-text">Скрольте страницу вниз</span>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -44,7 +49,16 @@
 			<div class="main-section__container">
 				<div class="main-section__align">
 					<div class="main-slider swiper-container main-slider-js">
-						<div class="parallax-bg" data-swiper-parallax="-30%"><div style="background-image:url(img/bg-img.jpg)">&nbsp;</div></div>
+						<div class="parallax-bg" data-swiper-parallax="-30%" id="scene-slider-01">
+							<div class="scene__layer" data-depth="0.1">
+								<div style="background-image:url(img/bg-slider-01.jpg)">&nbsp;</div>
+							</div>
+						</div>
+						<div class="parallax-bg" data-swiper-parallax="-50%" id="scene-slider-02">
+							<div class="scene__layer" data-depth="0.3">
+								<div style="background-image:url(img/bg-slider-02.png)">&nbsp;</div>
+							</div>
+						</div>
 						<div class="swiper-wrapper">
 							@@loop("_tpl_main-slider--items.html", "includes/json/main-slider--items.json")
 						</div>

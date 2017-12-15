@@ -179,7 +179,9 @@ function fullPageInitial() {
 			verticalCentered: false,
 			sectionSelector: '.main-section-js',
 			scrollingSpeed: 600,
-			recordHistory: true,
+			animateAnchor: false,
+			recordHistory: false,
+			lockAnchors: true,
 			responsiveWidth: 992,
 			responsiveHeight: 400,
 
@@ -501,4 +503,11 @@ $(document).ready(function () {
 	toggleDropInit();
 
 	formSuccessExample();
+
+	var scene = $('#scene').get(0);
+	new Parallax(scene);
+	var sceneSlider1 = $('#scene-slider-01').get(0);
+	new Parallax(sceneSlider1);
+	var sceneSlider2 = $('#scene-slider-02').get(0);
+	new Parallax(sceneSlider2);
 });
