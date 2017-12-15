@@ -53,6 +53,9 @@
 	+media('<tab-lg')
 		height: auto !important
 
+		.swiper-container
+			overflow: visible
+
 .main-section__container
 	height: 100%
 
@@ -392,10 +395,11 @@
 	position: absolute
 	top: auto
 	left: 50%
-	transform: translate(-50%, 0)
+	height: 0
 	padding-right: 20px
+	transform: translate(-50%, 0)
 	+font(16px, 24px)
-	margin-bottom: -12px
+	margin-bottom: 12px
 	text-align: left
 	text-transform: uppercase
 	letter-spacing: 0.1em
@@ -408,10 +412,9 @@
 	position: absolute
 	left: 0
 	width: 100%
+	height: 0
 	text-align: center
 	z-index: 10
-
-	transform: translate(0, 50%)
 
 	+media('<tab-lg')
 		position: relative
@@ -420,7 +423,44 @@
 
 		transform: none
 
+	& > div
+		height: 100%
+
+	a
+		margin-top: -33px
+
+		+media('<tab-lg')
+			margin-top: 0
+
 /* main slider end
+
+/* developer
+.dev
+	position: fixed
+	left: 50%
+	height: 0
+	width: 100%
+	padding-right: 20px
+	transform: translate(-50%, 0)
+	+font(12px, 18px)
+	margin-bottom: 9px
+	text-align: right
+	text-transform: uppercase
+	letter-spacing: 0.1em
+	color: #b3b3b3
+	z-index: 99
+
+	a
+		color: inherit
+		text-decoration: none
+		transition:
+			property: color
+			duration: $animation-speed
+		
+		.no-touchevents &:hover
+			color: #00ef85
+
+/* developer end
 
 /* share
 $social-share-space: 28px !default
@@ -432,6 +472,7 @@ $social-share-size: 40px !default
 	height: $social-share-size
 
 .social-share__opener
+	display: block
 	position: relative
 	color: white
 	fill: white

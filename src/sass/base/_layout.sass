@@ -199,6 +199,7 @@ body
 
 	+media('<tab-lg')
 		bottom: auto
+		height: auto
 
 .main-slider-pagination
 	bottom: 85px
@@ -248,3 +249,37 @@ body
 		right: round($layout-spaces--sm/2)
 
 /* main slider (layout) end
+
+/* developer (layout)
+.dev
+	bottom: 85px
+	bottom: round-float($header-height/2, 1)
+	+padding-horizontal($layout-spaces)
+	width: $page-layout-width + $layout-spaces*2
+	max-width: 100%
+	min-width: 35px
+
+	+media('<desk-lg')
+		bottom: round-float($header-height/2, 1)
+
+	+media('<desk-md')
+		+padding-horizontal($layout-spaces--lg)
+		width: $page-layout-width + $layout-spaces--lg*2
+
+	+media('<desk-sm')
+		+padding-horizontal($layout-spaces--sm)
+		width: $page-layout-width + $layout-spaces--sm*2
+
+	+media('<tab-lg')
+		position: relative
+		height: auto
+		bottom: auto
+		+padding-horizontal($layout-spaces--tab)
+		padding-bottom: 20px
+		margin-bottom: 0
+		text-align: center
+
+	+media('<mob-lg')
+		+padding-horizontal($layout-spaces--mob)
+
+/* developer (layout) end

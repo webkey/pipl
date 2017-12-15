@@ -115,6 +115,10 @@
 	animation-duration: 1s
 	animation-name: hinge
 
+.fp-enabled body, html.fp-enabled
+	+media('<tab-lg')
+		overflow: visible
+
 .mfp-container
 	+media('<tab-sm')
 		+padding-horizontal(0)
