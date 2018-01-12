@@ -111,6 +111,11 @@
 			opacity: 1
 			visibility: visible
 
+		+media('<mob-lg')
+			display: block
+			height: auto !important
+			min-height: 0
+
 	.main-section__container
 		display: table-cell
 		vertical-align: middle
@@ -118,38 +123,205 @@
 			property: opacity, visibility
 			duration: $animation-speed
 
+		+media('<mob-lg')
+			display: block
+
 	.main-section__align
 		height: auto
 		
 	h1, .main-section__title
 		+font-title
-		+font(10.5vh, 1)
+		font-size: 90px
+		+font(9.4vh, 1.1)
 		text-transform: uppercase
 		color: white
 		+push-auto
-		max-width: 110vh
 		margin-bottom: 0.3em
 
+		+media('<desk-lg')
+			font-size: 50px
+			font-size: 7.6vh
+
+		+media('<tab-lg')
+			font-size: 46px
+
 		+media('<mob-lg')
-			font-size: 8.5vh
+			margin-bottom: 0.8em
+
+		+media('<mob-md')
+			font-size: 36px
 
 		&:last-child
 			margin-bottom: 0
 
 .row-video
-	margin-bottom: 100px
-	margin-bottom: 12vh
+	//margin-bottom: 100px
+	//margin-bottom: 12vh
+	margin-bottom: 45px
+	margin-bottom: 6vh
+
+	+media('<desk-lg')
+		margin-bottom: 25px
+		margin-bottom: 4vh
 
 	+media('<desk-md')
-		margin-bottom: 60px
-		margin-bottom: 8vh
+		//margin-bottom: 60px
+		//margin-bottom: 8vh
+		margin-bottom: 15px
+		margin-bottom: 2vh
+
+	+media('<mob-lg')
+		margin-bottom: 30px
+
+	&:last-child
+		margin-bottom: 0
+
+.row-movies
+	//margin-bottom: 100px
+	//margin-bottom: 12vh
+	+push-auto
+
+	+media('<desk-md')
+		//margin-bottom: 60px
+		//margin-bottom: 8vh
+
+	+media('<tab-lg')
+		max-width: 640px
+
+	+media('<mob-lg')
+		margin-bottom: 20px
+
+	+media('<mob-md')
+		max-width: 280px
+
+	&:last-child
+		margin-bottom: 0
+
+.movies
+	+margin-horizontal(-25px)
+	+clear
+
+	+media('<desk-lg')
+		+margin-horizontal(-15px)
+
+	+media('<desk-sm')
+		+margin-horizontal(-8px)
+
+.movies__item
+	float: left
+	width: 20%
+	+padding-horizontal(25px)
+	margin-bottom: 28px
+	margin-bottom: 3vh
+
+	+media('<desk-lg')
+		+padding-horizontal(15px)
+		margin-bottom: 15px
+		margin-bottom: 2vh
+
+	+media('<desk-sm')
+		+padding-horizontal(8px)
+
+	+media('<tab-lg')
+		width: 33.3%
+
+	+media('<mob-lg')
+		width: 50%
+		margin-bottom: 40px
+
+	+media('<mob-md')
+		width: 100%
+
+.movies__inner
+	display: block
+	text-decoration: none
+	color: inherit
+
+.movies__img
+	position: relative
+	//padding-bottom: 55.6%
+	//height: 0
+	filter: grayscale(1)
+	box-shadow: 0 15px 35px #{rgba(#000, 0.25)}
+	transition:
+		property: box-shadow, filter
+		duration: $animation-speed
+
+	.movies &
+		//padding-bottom: 55.6%
+		margin-bottom: 2rem
+
+		+media('<desk-lg')
+			margin-bottom: 1rem
+
+	&::before, &::after
+		+pseudo()
+		left: 50%
+		top: 50%
+		z-index: 1
+
+	&::before
+		$size: 50px, 36px // white, height
+		+size(nth($size, 1), nth($size, 2))
+		margin: -#{round(nth($size, 2)/2)} 0 0 -#{round(nth($size, 1)/2)}
+		background-color: #000
+		border-radius: 10px
+		transition:
+			property: background-color
+			duration: $animation-speed
+
+	&::after
+		+triangle(right, #fff, 8px)
+		margin: -8px 0 0 -4px
+
+	img
+		position: relative
+		z-index: auto
+
+
+// hover
+.movies__inner:hover
+	.movies__img
+		box-shadow: 0 15px 35px #{rgba(#000, 0)}
+		filter: grayscale(0)
+
+		&::before
+			background-color: $base-color
+
+//.video iframe
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+
+.movies__title
+	display: block
+	margin-bottom: 2rem
+	+font-light
+	+font(14px, 24px)
+	letter-spacing: 0.1em
+	color: white
+	text-transform: uppercase
+	overflow: hidden
+	height: 48px
+
+	+media('<desk-lg')
+		+font(14px, 18px)
+		height: 36px
+
+	+media('<mob-md')
+		height: auto
 
 	&:last-child
 		margin-bottom: 0
 
 .row-callback
-	margin-bottom: 100px
-	margin-bottom: 5vh
+	margin-bottom: 28px
+	margin-bottom: 3vh
+
+	+media('<mob-lg')
+		margin-bottom: 0
 
 	&:last-child
 		margin-bottom: 0
@@ -159,6 +331,9 @@
 	fill: white
 	margin-bottom: 20px
 	margin-bottom: 3vh
+
+	+media('<tab-lg')
+		display: none
 
 	&:last-child
 		margin-bottom: 0
