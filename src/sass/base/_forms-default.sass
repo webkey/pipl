@@ -4,7 +4,7 @@
 
 /* FORM STYLES DEFAULT
 /* form layout
-.form-row, .input-wrap
+.form-row, .input-wrap, .captcha-wrap
 	position: relative // Важно! Для позицирования отметки подтверждения полей формы
 	margin-bottom: $form-bottom-space
 	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
@@ -146,7 +146,7 @@ textarea
 
 input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea, select, .select, .select2
 
-	.input-wrap &, &:last-child
+	.input-wrap &, &:last-child, .captcha-wrap &
 		margin-bottom: 0
 
 .error-note
@@ -162,7 +162,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 
 	margin-top: -#{$form-bottom-space}
 
-	.input-wrap &, .select &
+	.input-wrap &, .select &, .captcha-wrap &
 		float: none
 		position: absolute
 		margin-top: 0
@@ -193,7 +193,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 	pointer-events: none
 	display: none
 
-	.input-wrap &, .select &
+	.input-wrap &, .select &, .captcha-wrap &
 		float: none
 		position: absolute
 		top: round($form-input-height*0.5)

@@ -1365,7 +1365,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 /* BUTTON end */
 /* FORM STYLES DEFAULT */
 /* form layout */
-.form-row, .input-wrap {
+.form-row, .input-wrap, .captcha-wrap {
 	position: relative;
 	margin-bottom: 40px;
 	z-index: 1;
@@ -1563,7 +1563,7 @@ textarea {
 	resize: vertical;
 }
 
-.input-wrap input[type="text"], input[type="text"]:last-child, .input-wrap input[type="password"], input[type="password"]:last-child, .input-wrap input[type="email"], input[type="email"]:last-child, .input-wrap input[type="search"], input[type="search"]:last-child, .input-wrap textarea, textarea:last-child, .input-wrap select, select:last-child, .input-wrap .select, .select:last-child, .input-wrap .select2, .select2:last-child {
+.input-wrap input[type="text"], input[type="text"]:last-child, .captcha-wrap input[type="text"], .input-wrap input[type="password"], input[type="password"]:last-child, .captcha-wrap input[type="password"], .input-wrap input[type="email"], input[type="email"]:last-child, .captcha-wrap input[type="email"], .input-wrap input[type="search"], input[type="search"]:last-child, .captcha-wrap input[type="search"], .input-wrap textarea, textarea:last-child, .captcha-wrap textarea, .input-wrap select, select:last-child, .captcha-wrap select, .input-wrap .select, .select:last-child, .captcha-wrap .select, .input-wrap .select2, .select2:last-child, .captcha-wrap .select2 {
 	margin-bottom: 0;
 }
 
@@ -1587,7 +1587,7 @@ textarea {
 	margin-top: -40px;
 }
 
-.input-wrap .error-note, .select .error-note {
+.input-wrap .error-note, .select .error-note, .captcha-wrap .error-note {
 	float: none;
 	position: absolute;
 	margin-top: 0;
@@ -1616,7 +1616,7 @@ form .error + .select2 + .error-note {
 	display: none;
 }
 
-.input-wrap .success-note, .select .success-note {
+.input-wrap .success-note, .select .success-note, .captcha-wrap .success-note {
 	float: none;
 	position: absolute;
 	top: 25px;
@@ -2752,16 +2752,16 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 	display: block;
 }
 
-.user-form .form-row, .user-form .input-wrap {
+.user-form .form-row, .user-form .input-wrap, .user-form .captcha-wrap {
 	margin-bottom: 40px;
 }
 
-.user-form .form-row .input-wrap, .user-form .input-wrap .input-wrap {
+.user-form .form-row .input-wrap, .user-form .form-row .captcha-wrap, .user-form .input-wrap .input-wrap, .user-form .input-wrap .captcha-wrap, .user-form .captcha-wrap .input-wrap, .user-form .captcha-wrap .captcha-wrap {
 	margin-bottom: 0;
 }
 
 @media (max-width: 639px) {
-	.user-form .input-wrap, .user-form .form-row .input-wrap {
+	.user-form .input-wrap, .user-form .form-row .input-wrap, .user-form .captcha-wrap, .user-form .form-row .captcha-wrap {
 		margin-bottom: 40px;
 	}
 }
@@ -2772,45 +2772,55 @@ label.input--focus, input[type="text"].input--focus, input[type="password"].inpu
 	resize: none;
 }
 
-.user-form .captcha {
-	font-size: 0;
-	letter-spacing: -4px;
+.user-form .captcha-wrap {
 	position: relative;
 	z-index: 1;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
 }
 
-.user-form .captcha::after {
-	content: '';
-	display: table;
-	clear: both;
-}
-
-.user-form .captcha img {
-	display: inline-block;
-	vertical-align: middle;
-	max-width: 50%;
-	margin-right: 20px;
-	font-size: 12px;
-	line-height: 1.33;
-	letter-spacing: 0.1em;
-}
-
-.user-form .captcha img + input {
-	display: inline-block;
-	vertical-align: middle;
-	width: calc(50% - 20px);
-}
-
-@media (max-width: 991px) {
-	.user-form .captcha img {
+@media (max-width: 639px) {
+	.user-form .captcha-wrap {
 		display: block;
-		max-width: none;
-		margin-bottom: 1.8rem;
 	}
-	.user-form .captcha img + input {
-		display: block;
-		max-width: none;
+}
+
+.user-form .captcha-wrap .label-holder {
+	width: 100%;
+}
+
+.user-form .captcha-wrap .input-wrap {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 1;
+	        flex: 1 1;
+}
+
+@media (max-width: 639px) {
+	.user-form .captcha-wrap .input-wrap {
 		width: 100%;
+	}
+}
+
+.user-form .captcha-wrap .input-wrap input {
+	height: 40px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.user-form .captcha-code {
+	margin-right: 20px;
+}
+
+@media (max-width: 639px) {
+	.user-form .captcha-code {
+		margin-right: 0;
+		margin-bottom: 20px;
 	}
 }
 
